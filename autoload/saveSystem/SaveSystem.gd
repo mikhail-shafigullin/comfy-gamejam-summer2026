@@ -1,4 +1,3 @@
-class_name SaveSystem
 extends Node
 
 const DEFAULT_SAVE_PATH = "user://save.json"
