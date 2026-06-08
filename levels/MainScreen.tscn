@@ -2,8 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://dvjgpx65l7eax" path="res://assets/sprites/debug/ComfyJam-Summer2026_001.png" id="1_ht2jw"]
 [ext_resource type="Script" uid="uid://d3ert22prxvow" path="res://levels/MainScreen.gd" id="1_iaptt"]
-[ext_resource type="Texture2D" uid="uid://ccbg31qel1oan" path="res://assets/sprites/ComfyJam-Summer2026_botttle.png" id="2_e3bkk"]
-[ext_resource type="Script" uid="uid://c84gilgsuvqm5" path="res://components/GrabableComponent.gd" id="4_584rv"]
+[ext_resource type="PackedScene" uid="uid://yhw318gg5vjb" path="res://scenes/objects/BottleObject.tscn" id="3_iaptt"]
 
 [node name="MainScreen" type="Node2D" unique_id=828794147]
 script = ExtResource("1_iaptt")
@@ -12,22 +11,5 @@ script = ExtResource("1_iaptt")
 position = Vector2(640, 512)
 texture = ExtResource("1_ht2jw")
 
-[node name="Bottle" type="Node2D" parent="." unique_id=275105212]
+[node name="Bottle" parent="." unique_id=1146163768 instance=ExtResource("3_iaptt")]
 position = Vector2(640, 336)
-
-[node name="ComfyJamSummer2026Botttle" type="Sprite2D" parent="Bottle" unique_id=1860002136]
-scale = Vector2(0.5, 0.5)
-texture = ExtResource("2_e3bkk")
-
-[node name="GrabableComponent" type="Node" parent="Bottle" unique_id=571131212]
-script = ExtResource("4_584rv")
-grabableRotate = true
-rotateMaxAngle = 2.0
-rotateTiltFactor = 0.02
-rotateRestoreSpeed = 12.0
-
-[node name="StaticBody2D" type="StaticBody2D" parent="Bottle" unique_id=1012284091]
-input_pickable = true
-
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Bottle/StaticBody2D" unique_id=34996455]
-polygon = PackedVector2Array(-24, -88, -24, -32, -56, 0, -56, 128, -24, 144, 16, 144, 48, 128, 64, 32, 48, -16, 24, -32, 24, -80, 48, -96, 48, -112, 32, -120, -24, -120, -32, -112, -32, -96)
