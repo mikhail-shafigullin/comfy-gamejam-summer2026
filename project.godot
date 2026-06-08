@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="ComfyJam-Summer2026"
-run/main_scene="res://levels/Level2D.tscn"
+run/main_scene="uid://bxk5txju08l63"
 config/features=PackedStringArray("4.6", "GL Compatibility")
 config/icon="res://icon.svg"
 
@@ -19,6 +19,11 @@ config/icon="res://icon.svg"
 
 SceneTransitionManager="*res://autoload/sceneTransitionManager/SceneTransitionManager.tscn"
 SaveSystem="*res://autoload/saveSystem/SaveSystem.gd"
+
+[display]
+
+window/size/viewport_width=1280
+window/size/viewport_height=1024
 
 [physics]
 
