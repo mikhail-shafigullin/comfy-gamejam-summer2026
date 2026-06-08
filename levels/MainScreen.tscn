@@ -21,6 +21,10 @@ texture = ExtResource("2_e3bkk")
 
 [node name="GrabableComponent" type="Node" parent="Bottle" unique_id=571131212]
 script = ExtResource("4_584rv")
+grabableRotate = true
+rotateMaxAngle = 2.0
+rotateTiltFactor = 0.02
+rotateRestoreSpeed = 12.0
 
 [node name="StaticBody2D" type="StaticBody2D" parent="Bottle" unique_id=1012284091]
 input_pickable = true
