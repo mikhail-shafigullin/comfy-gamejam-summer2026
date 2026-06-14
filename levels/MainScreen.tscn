@@ -1,15 +1,80 @@
 [gd_scene format=3 uid="uid://bxk5txju08l63"]
 
-[ext_resource type="Texture2D" uid="uid://dvjgpx65l7eax" path="res://assets/sprites/debug/ComfyJam-Summer2026_001.png" id="1_ht2jw"]
 [ext_resource type="Script" uid="uid://d3ert22prxvow" path="res://levels/MainScreen.gd" id="1_iaptt"]
-[ext_resource type="PackedScene" uid="uid://yhw318gg5vjb" path="res://scenes/objects/BottleObject.tscn" id="3_iaptt"]
+[ext_resource type="PackedScene" uid="uid://bf3n8xh6p8lhc" path="res://levels/CocktailMixingScreen.tscn" id="3_584rv"]
+[ext_resource type="PackedScene" uid="uid://csrmqxuou7sml" path="res://levels/ClientScreen.tscn" id="4_1obit"]
+[ext_resource type="Script" uid="uid://8ojujrxluy8o" path="res://src/GameCycleController.gd" id="4_584rv"]
+[ext_resource type="PackedScene" uid="uid://dlqq0rwjeh1yb" path="res://levels/RecipeScreen.tscn" id="5_1obit"]
 
-[node name="MainScreen" type="Node2D" unique_id=828794147]
+[node name="MainScreen" type="Control" unique_id=2002646227]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
 script = ExtResource("1_iaptt")
 
-[node name="ComfyJamSummer2026001" type="Sprite2D" parent="." unique_id=1025831546]
-position = Vector2(640, 512)
-texture = ExtResource("1_ht2jw")
+[node name="borders" type="Control" parent="." unique_id=1064619904]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 6
+size_flags_vertical = 6
 
-[node name="Bottle" parent="." unique_id=1146163768 instance=ExtResource("3_iaptt")]
-position = Vector2(640, 336)
+[node name="ColorRect" type="ColorRect" parent="borders" unique_id=2011013195]
+layout_mode = 0
+offset_right = 1285.0
+offset_bottom = 52.0
+color = Color(0.24313726, 0.09019608, 0.18039216, 1)
+
+[node name="ColorRect2" type="ColorRect" parent="borders" unique_id=150448959]
+layout_mode = 0
+offset_top = 846.0
+offset_right = 1285.0
+offset_bottom = 1026.0
+color = Color(0.24313726, 0.09019608, 0.18039216, 1)
+
+[node name="ColorRect3" type="ColorRect" parent="borders" unique_id=206993526]
+layout_mode = 0
+offset_right = 77.0
+offset_bottom = 881.0
+color = Color(0.24313726, 0.09019608, 0.18039216, 1)
+
+[node name="ColorRect4" type="ColorRect" parent="borders" unique_id=795187769]
+layout_mode = 0
+offset_left = 762.0
+offset_right = 820.0
+offset_bottom = 881.0
+color = Color(0.24313726, 0.09019608, 0.18039216, 1)
+
+[node name="ColorRect5" type="ColorRect" parent="borders" unique_id=100609946]
+layout_mode = 0
+offset_left = 1229.0
+offset_right = 1287.0
+offset_bottom = 881.0
+color = Color(0.24313726, 0.09019608, 0.18039216, 1)
+
+[node name="ColorRect6" type="ColorRect" parent="borders" unique_id=2007364606]
+layout_mode = 0
+offset_left = 809.0
+offset_top = 465.0
+offset_right = 1285.0
+offset_bottom = 530.0
+color = Color(0.24313726, 0.09019608, 0.18039216, 1)
+
+[node name="GameCycle" type="Node" parent="." unique_id=1095228021]
+script = ExtResource("4_584rv")
+
+[node name="CocktailMixingScreen" parent="." unique_id=562281540 instance=ExtResource("3_584rv")]
+layout_mode = 1
+
+[node name="ClientScreen" parent="." unique_id=173617116 instance=ExtResource("4_1obit")]
+layout_mode = 1
+
+[node name="RecipeScreen" parent="." unique_id=2131600368 instance=ExtResource("5_1obit")]
+layout_mode = 1

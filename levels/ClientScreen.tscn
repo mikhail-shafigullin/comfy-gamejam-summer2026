@@ -1,0 +1,34 @@
+[gd_scene format=3 uid="uid://csrmqxuou7sml"]
+
+[ext_resource type="Texture2D" uid="uid://dvjgpx65l7eax" path="res://assets/sprites/debug/ComfyJam-Summer2026_001.png" id="1_8yjf6"]
+
+[node name="Control2" type="Control" unique_id=173617116]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 816.0
+offset_top = 51.0
+offset_right = -48.0
+offset_bottom = -551.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="SubViewportContainer" type="SubViewportContainer" parent="." unique_id=610600359]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 2.0
+offset_bottom = 4.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="SubViewport" type="SubViewport" parent="SubViewportContainer" unique_id=1351057798]
+handle_input_locally = false
+size = Vector2i(418, 426)
+render_target_update_mode = 4
+
+[node name="ComfyJamSummer2026001" type="Sprite2D" parent="SubViewportContainer/SubViewport" unique_id=581419530]
+position = Vector2(-179, 467)
+texture = ExtResource("1_8yjf6")

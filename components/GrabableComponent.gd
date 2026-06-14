@@ -19,10 +19,6 @@ func _ready() -> void:
 	if parent != null:
 		_originalRotation = parent.rotation
 
-	var body := _findStaticBody(get_parent())
-	if body != null:
-		body.input_event.connect(_onBodyInputEvent)
-
 func _process(delta: float) -> void:
 	if not grabableRotate:
 		return
@@ -31,7 +27,6 @@ func _process(delta: float) -> void:
 	if parent == null:
 		return
 
-	# Decay velocity — when mouse stops, tilt returns to zero
 	_velocityX = lerpf(_velocityX, 0.0, rotateRestoreSpeed * delta)
 
 	var targetRotation := _originalRotation
@@ -40,25 +35,15 @@ func _process(delta: float) -> void:
 
 	parent.rotation = lerp_angle(parent.rotation, targetRotation, rotateRestoreSpeed * delta)
 
-	# Keep the exact grab point under the cursor as the object rotates
 	if _isDragging:
-		parent.global_position = parent.get_global_mouse_position() - _clickLocalOffset.rotated(parent.rotation)
-
-func _onBodyInputEvent(_viewport: Viewport, event: InputEvent, _shapeIdx: int) -> void:
-	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and event.pressed:
-		var parent := get_parent() as Node2D
-		if parent == null:
-			return
-		var mousePos := parent.get_global_mouse_position()
-		_isDragging = true
-		_dragOffset = parent.global_position - mousePos
-		_clickLocalOffset = parent.to_local(mousePos)
-		_lastMousePos = mousePos
-		get_viewport().set_input_as_handled()
+		parent.global_position = _getClampedMousePos(parent) - _clickLocalOffset.rotated(parent.rotation)
 
 func _input(event: InputEvent) -> void:
-	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and not event.pressed:
-		_isDragging = false
+	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT:
+		if event.pressed:
+			_tryStartDrag()
+		else:
+			_isDragging = false
 		return
 
 	if event is InputEventMouseMotion and _isDragging:
@@ -66,11 +51,41 @@ func _input(event: InputEvent) -> void:
 		if parent != null:
 			_updateDragPosition(parent)
 
-func _updateDragPosition(parent: Node2D) -> void:
+func _tryStartDrag() -> void:
+	var parent := get_parent() as Node2D
+	if parent == null:
+		return
+
+	var body := _findStaticBody(parent)
+	if body == null:
+		return
+
 	var mousePos := parent.get_global_mouse_position()
+	var spaceState := parent.get_world_2d().direct_space_state
+	var query := PhysicsPointQueryParameters2D.new()
+	query.position = mousePos
+	query.collide_with_bodies = true
+
+	for result in spaceState.intersect_point(query):
+		if result["collider"] == body:
+			_isDragging = true
+			_dragOffset = parent.global_position - mousePos
+			_clickLocalOffset = parent.to_local(mousePos)
+			_lastMousePos = mousePos
+			get_viewport().set_input_as_handled()
+			return
+
+func _getClampedMousePos(parent: Node2D) -> Vector2:
+	var mousePos := parent.get_global_mouse_position()
+	var rect := get_viewport().get_visible_rect()
+	mousePos.x = clamp(mousePos.x, rect.position.x, rect.end.x)
+	mousePos.y = clamp(mousePos.y, rect.position.y, rect.end.y)
+	return mousePos
+
+func _updateDragPosition(parent: Node2D) -> void:
+	var mousePos := _getClampedMousePos(parent)
 
 	if grabableRotate:
-		# Raw delta becomes the velocity; _process decays it each frame
 		_velocityX = mousePos.x - _lastMousePos.x
 		_lastMousePos = mousePos
 	else:
