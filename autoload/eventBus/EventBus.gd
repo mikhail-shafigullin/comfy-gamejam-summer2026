@@ -11,3 +11,7 @@ signal clientFinish();
 # cocktails events
 signal cocktailOrdered(cocktailData: CocktailRecipeData);
 signal cocktailMixingFinished();
+
+# buztalks
+signal buztalkStart(dialogue: BuztalkDialogue)
+signal buztalkFinish();

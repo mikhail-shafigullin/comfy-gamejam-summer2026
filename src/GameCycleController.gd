@@ -26,6 +26,9 @@ func addIngredient(ingredient: IngredientData, miniGameResult: CocktailMixingCon
 func deleteCocktail():
 	cocktailMixingController.clearCurrentCocktail();
 
+func startDialogue():
+	var dialogue = currentClient.getNextBuzTalk();
+
 func finishCocktailMixing():
 	cocktailMixingController.finishMixing();
 	EventBus.cocktailMixingFinished.emit();
