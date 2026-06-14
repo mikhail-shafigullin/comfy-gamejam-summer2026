@@ -19,6 +19,8 @@ config/icon="res://icon.svg"
 
 SceneTransitionManager="*res://autoload/sceneTransitionManager/SceneTransitionManager.tscn"
 SaveSystem="*res://autoload/saveSystem/SaveSystem.gd"
+EventBus="*uid://oj54oy6l1m8i"
+Resources="*uid://dlqkpkw56laxe"
 
 [display]
 

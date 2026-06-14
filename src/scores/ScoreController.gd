@@ -1,0 +1,2 @@
+class_name ScoreController
+extends Node
