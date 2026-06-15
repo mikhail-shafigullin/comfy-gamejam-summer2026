@@ -1,0 +1,28 @@
+[gd_scene format=3 uid="uid://bgehynp363i4e"]
+
+[ext_resource type="Texture2D" uid="uid://ccbg31qel1oan" path="res://assets/sprites/ComfyJam-Summer2026_botttle.png" id="1_k6bm7"]
+[ext_resource type="Script" uid="uid://c84gilgsuvqm5" path="res://components/GrabableComponent.gd" id="2_qtph2"]
+
+[node name="MilkBottle" type="Node2D" unique_id=1146163768]
+
+[node name="ComfyJamSummer2026Botttle" type="Sprite2D" parent="." unique_id=1263969476]
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("1_k6bm7")
+
+[node name="GrabableComponent" type="Node" parent="." unique_id=293502135]
+script = ExtResource("2_qtph2")
+grabableRotate = true
+
+[node name="Label" type="Label" parent="." unique_id=838648391]
+offset_left = -30.0
+offset_top = -17.0
+offset_right = 33.0
+offset_bottom = 25.0
+theme_override_font_sizes/font_size = 30
+text = "milk"
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=1578548011]
+input_pickable = true
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D" unique_id=1253546735]
+polygon = PackedVector2Array(-24, -88, -24, -32, -56, 0, -56, 128, -24, 144, 16, 144, 48, 128, 64, 32, 48, -16, 24, -32, 24, -80, 48, -96, 48, -112, 32, -120, -24, -120, -32, -112, -32, -96)

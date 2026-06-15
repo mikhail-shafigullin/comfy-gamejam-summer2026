@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://c74p85pyna2bf"]
+
+[ext_resource type="Texture2D" uid="uid://by6hohiajk4sb" path="res://assets/sprites/Glass_Background.png" id="1_afoa8"]
+[ext_resource type="Script" uid="uid://cqjobj5o78qjr" path="res://scenes/objects/ShakerObject.gd" id="1_j4bmh"]
+[ext_resource type="Texture2D" uid="uid://dqp8px8sg3k45" path="res://assets/sprites/Glass_Foreground.png" id="2_j4bmh"]
+
+[node name="Shaker" type="Node2D" unique_id=1170390427]
+script = ExtResource("1_j4bmh")
+
+[node name="GlassBackground" type="Sprite2D" parent="." unique_id=1641604231]
+position = Vector2(71, 85)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("1_afoa8")
+metadata/_edit_group_ = true
+
+[node name="GlassForeground" type="Sprite2D" parent="." unique_id=1466441797]
+position = Vector2(70, 86)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_j4bmh")
