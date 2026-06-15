@@ -1,3 +1,4 @@
+class_name GameCycleController
 extends Node
 
 var currentClient: ClientData = null;
@@ -5,6 +6,7 @@ var cocktailMixingController: CocktailMixingController = null;
 var initClientTimer: Timer
 
 func _ready() -> void:
+	Global.gameCycle = self;
 	cocktailMixingController = CocktailMixingController.new();
 	initClientTimer = Timer.new()
 	initClientTimer.one_shot = true;
@@ -16,7 +18,7 @@ func _ready() -> void:
 func initClient():
 	var newClient = ClientData.new();
 	newClient.clientName = "Innokentii Petrov"
-	newClient.initialCocktailRecipe = Resources.getRandomCocktailRecipe();
+	newClient.initialCocktailRecipe = Resources.recipePinaKolada;
 	currentClient = newClient;
 	EventBus.clientInit.emit(newClient);
 

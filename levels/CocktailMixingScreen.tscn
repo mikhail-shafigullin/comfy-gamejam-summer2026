@@ -50,6 +50,9 @@ texture = ExtResource("1_p7gku")
 
 [node name="Node2D" type="Node2D" parent="SubViewportContainer/SubViewport" unique_id=567319740]
 
+[node name="Shaker" parent="SubViewportContainer/SubViewport" unique_id=1170390427 instance=ExtResource("4_pj4pp")]
+position = Vector2(240, 484)
+
 [node name="PineappleBottle" parent="SubViewportContainer/SubViewport" unique_id=1146163768 instance=ExtResource("3_rxol5")]
 position = Vector2(336, 272)
 
@@ -58,6 +61,3 @@ position = Vector2(132, 268)
 
 [node name="Rum" parent="SubViewportContainer/SubViewport" unique_id=1034362187 instance=ExtResource("2_ay30o")]
 position = Vector2(515, 280)
-
-[node name="Shaker" parent="SubViewportContainer/SubViewport" unique_id=1170390427 instance=ExtResource("4_pj4pp")]
-position = Vector2(240, 484)
