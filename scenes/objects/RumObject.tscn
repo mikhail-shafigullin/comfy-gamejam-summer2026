@@ -1,9 +1,11 @@
 [gd_scene format=3 uid="uid://yhw318gg5vjb"]
 
+[ext_resource type="Script" uid="uid://bwewhh3gr6dam" path="res://scenes/objects/RumIngredientObject.gd" id="1_h04hl"]
 [ext_resource type="Texture2D" uid="uid://ccbg31qel1oan" path="res://assets/sprites/ComfyJam-Summer2026_botttle.png" id="1_mtrvo"]
 [ext_resource type="Script" uid="uid://c84gilgsuvqm5" path="res://components/GrabableComponent.gd" id="2_h04hl"]
 
 [node name="RumBottle" type="Node2D" unique_id=1146163768]
+script = ExtResource("1_h04hl")
 
 [node name="ComfyJamSummer2026Botttle" type="Sprite2D" parent="." unique_id=1263969476]
 scale = Vector2(0.5, 0.5)

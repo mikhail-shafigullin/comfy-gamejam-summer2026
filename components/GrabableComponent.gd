@@ -1,6 +1,8 @@
 class_name GrabableComponent
 extends Node
 
+signal dropped(node: Node2D)
+
 @export var boundsSprite: Sprite2D = null
 @export var grabableRotate: bool = false
 @export var rotateMaxAngle: float = 2
@@ -43,7 +45,13 @@ func _input(event: InputEvent) -> void:
 		if event.pressed:
 			_tryStartDrag()
 		else:
-			_isDragging = false
+			if _isDragging:
+				_isDragging = false
+				var parent := get_parent() as Node2D
+				if parent != null:
+					dropped.emit(parent)
+			else:
+				_isDragging = false
 		return
 
 	if event is InputEventMouseMotion and _isDragging:

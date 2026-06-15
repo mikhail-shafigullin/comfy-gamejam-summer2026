@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://d1t8nj86n4mg5" path="res://levels/CocktailMixingScreen.gd" id="1_ay30o"]
 [ext_resource type="Texture2D" uid="uid://dvjgpx65l7eax" path="res://assets/sprites/debug/ComfyJam-Summer2026_001.png" id="1_p7gku"]
 [ext_resource type="PackedScene" uid="uid://yhw318gg5vjb" path="res://scenes/objects/RumObject.tscn" id="2_ay30o"]
+[ext_resource type="PackedScene" uid="uid://dd1ngr3d13nt" path="res://scenes/minigames/AddIngredientMinigame.tscn" id="2_lxkw4"]
 [ext_resource type="PackedScene" uid="uid://bae3r6g0vgr1u" path="res://scenes/objects/PineappleObject.tscn" id="3_rxol5"]
 [ext_resource type="PackedScene" uid="uid://bgehynp363i4e" path="res://scenes/objects/MilkObject.tscn" id="4_lxkw4"]
 [ext_resource type="PackedScene" uid="uid://c74p85pyna2bf" path="res://scenes/objects/ShakerObject.tscn" id="4_pj4pp"]
@@ -32,6 +33,11 @@ offset_bottom = 4.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_target = true
+
+[node name="AddIngredientMinigame" parent="SubViewportContainer" unique_id=752983230 instance=ExtResource("2_lxkw4")]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
 
 [node name="SubViewport" type="SubViewport" parent="SubViewportContainer" unique_id=666815101]
 handle_input_locally = false

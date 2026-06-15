@@ -1,11 +1,23 @@
 extends Control
 
+const AddIngredientMinigame = preload("res://scenes/minigames/AddIngredientMinigame.tscn")
 
-# Called when the node enters the scene tree for the first time.
+@onready var _subviewport: SubViewport = $SubViewportContainer/SubViewport
+@onready var _shaker: Node2D = $SubViewportContainer/SubViewport/Shaker
+@onready var addIngredientMiniGame: AddIngredientMiniGame = %AddIngredientMinigame;
+
 func _ready() -> void:
-	pass # Replace with function body.
+	var ingredients: Array[Node2D] = [
+		$SubViewportContainer/SubViewport/MilkBottle,
+		$SubViewportContainer/SubViewport/PineappleBottle,
+		$SubViewportContainer/SubViewport/Rum,
+	]
+	for ingredient in ingredients:
+		var grab := ingredient.get_node("GrabableComponent") as GrabableComponent
+		grab.dropped.connect(_shaker.onIngredientDropped)
 
+	_shaker.minigame_requested.connect(_on_minigame_requested)
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
+func _on_minigame_requested(ingredient: Node2D) -> void:
+	addIngredientMiniGame.start();
+	addIngredientMiniGame.finished.connect(func(): _shaker.addIngredientFinish(ingredient), CONNECT_ONE_SHOT)

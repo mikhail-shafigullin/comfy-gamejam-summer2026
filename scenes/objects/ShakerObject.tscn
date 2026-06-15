@@ -4,6 +4,9 @@
 [ext_resource type="Script" uid="uid://cqjobj5o78qjr" path="res://scenes/objects/ShakerObject.gd" id="1_j4bmh"]
 [ext_resource type="Texture2D" uid="uid://dqp8px8sg3k45" path="res://assets/sprites/Glass_Foreground.png" id="2_j4bmh"]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_j4bmh"]
+size = Vector2(133, 153)
+
 [node name="Shaker" type="Node2D" unique_id=1170390427]
 script = ExtResource("1_j4bmh")
 
@@ -17,3 +20,10 @@ metadata/_edit_group_ = true
 position = Vector2(70, 86)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("2_j4bmh")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=1847767884]
+unique_name_in_owner = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=2082913765]
+position = Vector2(75.5, 84.5)
+shape = SubResource("RectangleShape2D_j4bmh")
