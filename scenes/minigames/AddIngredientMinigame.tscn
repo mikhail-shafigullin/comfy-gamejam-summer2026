@@ -27,24 +27,58 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -150.0
-offset_top = -60.0
-offset_right = 150.0
-offset_bottom = 60.0
+offset_left = -200.0
+offset_top = -80.0
+offset_right = 200.0
+offset_bottom = 80.0
 grow_horizontal = 2
 grow_vertical = 2
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Panel" unique_id=835577906]
 layout_mode = 2
+theme_override_constants/separation = 10
 
 [node name="Label" type="Label" parent="Panel/VBoxContainer" unique_id=1022465120]
 layout_mode = 2
-theme_override_font_sizes/font_size = 20
-text = "Adding ingredient..."
+theme_override_font_sizes/font_size = 18
+text = "Press left MOUSE button"
 horizontal_alignment = 1
 
-[node name="ProgressBar" type="ProgressBar" parent="Panel/VBoxContainer" unique_id=1525113143]
+[node name="BarArea" type="Control" parent="Panel/VBoxContainer" unique_id=104920394]
+custom_minimum_size = Vector2(0, 28)
 layout_mode = 2
 
-[node name="Timer" type="Timer" parent="." unique_id=1061171385]
-one_shot = true
+[node name="ProgressBar" type="ProgressBar" parent="Panel/VBoxContainer/BarArea" unique_id=1525113143]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="GoodZone" type="ColorRect" parent="Panel/VBoxContainer/BarArea" unique_id=204830291]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.8
+anchor_right = 0.95
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(1, 0.85, 0, 0.5)
+
+[node name="PerfectZone" type="ColorRect" parent="Panel/VBoxContainer/BarArea" unique_id=304720188]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.85
+anchor_right = 0.9
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0, 0.85, 0, 0.5)
+
+[node name="ResultLabel" type="Label" parent="Panel/VBoxContainer" unique_id=404610085]
+layout_mode = 2
+theme_override_font_sizes/font_size = 22
+horizontal_alignment = 1

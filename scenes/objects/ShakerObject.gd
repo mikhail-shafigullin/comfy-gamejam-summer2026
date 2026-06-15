@@ -23,5 +23,5 @@ func onIngredientDropped(ingredient: Node2D) -> void:
 func addIngredientIntent(ingredient: Node2D) -> void:
 	minigame_requested.emit(ingredient)
 
-func addIngredientFinish(ingredient: Node2D) -> void:
-	print("Ingredient added to shaker: ", ingredient.name)
+func addIngredientFinish(ingredient: Node2D, result: String) -> void:
+	print("Ingredient added to shaker: ", ingredient.name, " (", result, ")")
