@@ -1,7 +1,10 @@
 [gd_scene format=3 uid="uid://bf3n8xh6p8lhc"]
 
+[ext_resource type="Script" uid="uid://d1t8nj86n4mg5" path="res://levels/CocktailMixingScreen.gd" id="1_ay30o"]
 [ext_resource type="Texture2D" uid="uid://dvjgpx65l7eax" path="res://assets/sprites/debug/ComfyJam-Summer2026_001.png" id="1_p7gku"]
 [ext_resource type="PackedScene" uid="uid://yhw318gg5vjb" path="res://scenes/objects/BottleObject.tscn" id="2_ay30o"]
+[ext_resource type="Texture2D" uid="uid://dqp8px8sg3k45" path="res://assets/sprites/Glass_Foreground.png" id="4_pj4pp"]
+[ext_resource type="Texture2D" uid="uid://by6hohiajk4sb" path="res://assets/sprites/Glass_Background.png" id="4_psf0g"]
 
 [node name="BarMixingScreen" type="Control" unique_id=562281540]
 layout_mode = 3
@@ -15,6 +18,7 @@ offset_bottom = -177.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
+script = ExtResource("1_ay30o")
 
 [node name="SubViewportContainer" type="SubViewportContainer" parent="." unique_id=1536860121]
 clip_contents = true
@@ -41,3 +45,13 @@ texture = ExtResource("1_p7gku")
 
 [node name="Bottle" parent="SubViewportContainer/SubViewport" unique_id=1146163768 instance=ExtResource("2_ay30o")]
 position = Vector2(515, 280)
+
+[node name="GlassBackground" type="Sprite2D" parent="SubViewportContainer" unique_id=655703497]
+position = Vector2(328, 554)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("4_psf0g")
+metadata/_edit_group_ = true
+
+[node name="GlassForeground" type="Sprite2D" parent="SubViewportContainer/GlassBackground" unique_id=426969204]
+position = Vector2(-2, 2)
+texture = ExtResource("4_pj4pp")

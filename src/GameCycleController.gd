@@ -1,11 +1,17 @@
-
 extends Node
 
 var currentClient: ClientData = null;
 var cocktailMixingController: CocktailMixingController = null;
+var initClientTimer: Timer
 
 func _ready() -> void:
 	cocktailMixingController = CocktailMixingController.new();
+	initClientTimer = Timer.new()
+	initClientTimer.one_shot = true;
+	initClientTimer.wait_time = 1.0;
+	initClientTimer.timeout.connect(initClient);
+	add_child(initClientTimer)
+	initClientTimer.start();
 
 func initClient():
 	var newClient = ClientData.new();

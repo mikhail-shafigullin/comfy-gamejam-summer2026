@@ -1,1 +1,4 @@
-extends Node
+extends Control
+
+func _ready() -> void:
+	pass;

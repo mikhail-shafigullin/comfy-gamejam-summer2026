@@ -1,5 +1,6 @@
 [gd_scene format=3 uid="uid://dlqq0rwjeh1yb"]
 
+[ext_resource type="Script" uid="uid://c8b80wpafpw1a" path="res://levels/RecipeScreen.gd" id="1_58xx5"]
 [ext_resource type="Texture2D" uid="uid://dvjgpx65l7eax" path="res://assets/sprites/debug/ComfyJam-Summer2026_001.png" id="1_cv6ae"]
 
 [node name="RecipeScreen" type="Control" unique_id=2131600368]
@@ -13,6 +14,7 @@ offset_right = -48.0
 offset_bottom = -175.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_58xx5")
 
 [node name="SubViewportContainer" type="SubViewportContainer" parent="." unique_id=680890273]
 layout_mode = 1
