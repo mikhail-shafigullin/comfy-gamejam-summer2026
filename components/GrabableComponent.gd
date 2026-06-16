@@ -8,6 +8,7 @@ signal dropped(node: Node2D)
 @export var rotateMaxAngle: float = 2
 @export var rotateTiltFactor: float = 0.02
 @export var rotateRestoreSpeed: float = 12
+@export var isGrabDisabled: bool = false
 
 var _isDragging: bool = false
 var _dragOffset: Vector2 = Vector2.ZERO
@@ -15,6 +16,7 @@ var _clickLocalOffset: Vector2 = Vector2.ZERO
 var _originalRotation: float = 0.0
 var _lastMousePos: Vector2 = Vector2.ZERO
 var _velocityX: float = 0.0
+
 
 func _ready() -> void:
 	var parent := get_parent() as Node2D
@@ -60,6 +62,9 @@ func _input(event: InputEvent) -> void:
 			_updateDragPosition(parent)
 
 func _tryStartDrag() -> void:
+	if isGrabDisabled:
+		return
+
 	var parent := get_parent() as Node2D
 	if parent == null:
 		return
@@ -125,3 +130,6 @@ func _findSprite(node: Node) -> Sprite2D:
 		if child is Sprite2D:
 			return child as Sprite2D
 	return null
+
+func disableGrab(disable: bool) -> void:
+	isGrabDisabled = disable

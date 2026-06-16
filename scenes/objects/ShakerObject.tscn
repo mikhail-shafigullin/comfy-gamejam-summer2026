@@ -3,9 +3,13 @@
 [ext_resource type="Texture2D" uid="uid://by6hohiajk4sb" path="res://assets/sprites/Glass_Background.png" id="1_afoa8"]
 [ext_resource type="Script" uid="uid://cqjobj5o78qjr" path="res://scenes/objects/ShakerObject.gd" id="1_j4bmh"]
 [ext_resource type="Texture2D" uid="uid://dqp8px8sg3k45" path="res://assets/sprites/Glass_Foreground.png" id="2_j4bmh"]
+[ext_resource type="Script" uid="uid://c84gilgsuvqm5" path="res://components/GrabableComponent.gd" id="4_0p30w"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_j4bmh"]
 size = Vector2(133, 153)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0p30w"]
+size = Vector2(120, 248)
 
 [node name="Shaker" type="Node2D" unique_id=1170390427]
 script = ExtResource("1_j4bmh")
@@ -21,9 +25,28 @@ position = Vector2(70, 86)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("2_j4bmh")
 
+[node name="Cap" type="Sprite2D" parent="." unique_id=354057088]
+visible = false
+position = Vector2(80, -24)
+rotation = 3.1415925
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("2_j4bmh")
+
 [node name="Area2D" type="Area2D" parent="." unique_id=1847767884]
 unique_name_in_owner = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=2082913765]
 position = Vector2(75.5, 84.5)
 shape = SubResource("RectangleShape2D_j4bmh")
+
+[node name="GrabableComponent" type="Node" parent="." unique_id=40952499]
+script = ExtResource("4_0p30w")
+grabableRotate = true
+isGrabDisabled = true
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=1768164046]
+input_pickable = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=245711674]
+position = Vector2(76, 36)
+shape = SubResource("RectangleShape2D_0p30w")

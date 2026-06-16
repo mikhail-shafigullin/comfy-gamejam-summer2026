@@ -3,10 +3,15 @@ extends Control
 const AddIngredientMinigame = preload("res://scenes/minigames/AddIngredientMinigame.tscn")
 
 @onready var _subviewport: SubViewport = $SubViewportContainer/SubViewport
-@onready var _shaker: Node2D = $SubViewportContainer/SubViewport/Shaker
+@onready var _shaker: ShakerObject = $SubViewportContainer/SubViewport/Shaker
+@onready var _shakerCap: ShakerCap = $SubViewportContainer/SubViewport/ShakerCap
 @onready var addIngredientMiniGame: AddIngredientMiniGame = %AddIngredientMinigame;
+@onready var curtain: ColorRect = %Curtain
+
 
 func _ready() -> void:
+	_shakerCap.shakerObject = _shaker
+
 	var ingredients: Array[Node2D] = [
 		$SubViewportContainer/SubViewport/MilkBottle,
 		$SubViewportContainer/SubViewport/PineappleBottle,

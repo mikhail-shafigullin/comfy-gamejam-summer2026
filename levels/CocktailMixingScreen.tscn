@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://bae3r6g0vgr1u" path="res://scenes/objects/PineappleObject.tscn" id="3_rxol5"]
 [ext_resource type="PackedScene" uid="uid://bgehynp363i4e" path="res://scenes/objects/MilkObject.tscn" id="4_lxkw4"]
 [ext_resource type="PackedScene" uid="uid://c74p85pyna2bf" path="res://scenes/objects/ShakerObject.tscn" id="4_pj4pp"]
+[ext_resource type="PackedScene" uid="uid://cmpjgil10frwi" path="res://scenes/objects/shakerСap.tscn" id="8_7nt35"]
 
 [node name="BarMixingScreen" type="Control" unique_id=562281540]
 layout_mode = 3
@@ -61,3 +62,16 @@ position = Vector2(132, 268)
 
 [node name="Rum" parent="SubViewportContainer/SubViewport" unique_id=1034362187 instance=ExtResource("2_ay30o")]
 position = Vector2(515, 280)
+
+[node name="Curtain" type="ColorRect" parent="SubViewportContainer/SubViewport" unique_id=1405940274]
+unique_name_in_owner = true
+visible = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.24313726, 0.09019608, 0.18039216, 0.70980394)
+
+[node name="ShakerCap" parent="SubViewportContainer/SubViewport" unique_id=445009367 instance=ExtResource("8_7nt35")]
+position = Vector2(541, 573)

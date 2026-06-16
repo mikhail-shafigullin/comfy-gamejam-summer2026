@@ -1,4 +1,4 @@
 class_name IngredientObject
-extends Node
+extends Node2D
 
-@export var type: IngredientData
+@export var data: IngredientData

@@ -1,3 +1,4 @@
+class_name ShakerObject
 extends Node2D
 
 signal minigame_requested(ingredient: Node2D)
@@ -24,7 +25,7 @@ func onIngredientDropped(ingredient: Node2D) -> void:
 	query.collide_with_bodies = false
 
 	for result in space_state.intersect_point(query):
-		if result["collider"] == _area:
+		if result["collider"] == _area && ingredient is IngredientObject :
 			addIngredientIntent(ingredient)
 			return
 
@@ -39,5 +40,9 @@ func setEnabled(enabled: bool):
 func addIngredientIntent(ingredient: Node2D) -> void:
 	minigame_requested.emit(ingredient)
 
-func addIngredientFinish(ingredient: Node2D, result: String) -> void:
+func addIngredientFinish(ingredient: IngredientObject, result: String) -> void:
+	#Global.gameCycle.addIngredient(ingredient.data, result);
 	print("Ingredient added to shaker: ", ingredient.name, " (", result, ")")
+
+func closeTheCap() -> void:
+	print("closeTheCap")

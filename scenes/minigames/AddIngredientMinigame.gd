@@ -32,16 +32,16 @@ func _input(event: InputEvent) -> void:
 	if event is InputEventMouseButton and event.pressed:
 		_finish(_get_result())
 
-func _get_result() -> String:
+func _get_result() -> CocktailMixingController.IngredientMiniGameStatus:
 	if current_value >= 85.0 and current_value <= 90.0:
-		return "Perfect"
+		return CocktailMixingController.IngredientMiniGameStatus
 	if current_value >= 80.0 and current_value <= 95.0:
 		return "Good"
 	return "Miss"
 
-func _finish(result: String) -> void:
+func _finish(result: CocktailMixingController.IngredientMiniGameStatus) -> void:
 	is_running = false
-	result_label.text = result
+	result_label.text = result.name
 	await get_tree().create_timer(1.0).timeout
 	visible = false
 	current_value = 0.0
