@@ -9,7 +9,7 @@ var isEnabled: bool
 func _ready() -> void:
 	setEnabled(false);
 	EventBus.cocktailOrdered.connect(cocktailOrdered)
-	EventBus.cocktailMixingFinished.connect(func(): setEnabled(false))
+	EventBus.cocktailFinished.connect(func(): setEnabled(false))
 	_grabableComponent.dropped.connect(_onDropped)
 
 func _onDropped(cap: Node2D) -> void:

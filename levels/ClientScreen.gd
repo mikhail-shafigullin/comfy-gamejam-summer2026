@@ -6,6 +6,8 @@ extends Control
 func _ready() -> void:
 	EventBus.clientInit.connect(setClient);
 	EventBus.clientFinish.connect(removeClient);
+	EventBus.clientAnnounceResults.connect(showDialogueResult);
+
 	pass # Replace with function body.
 
 func setClient(clientData: ClientData):
@@ -23,3 +25,15 @@ func removeClient():
 func startClientDialogue():
 	Dialogic.start("Greetings");
 	pass;
+
+	
+func showDialogueResult(scoreUpdates: Array[ScoreUpdate]):
+	var result: String = "";
+	var resultScore = 0;
+	for scoreUpdate in scoreUpdates:
+		result = result + scoreUpdate.label + ": " + str(scoreUpdate.amount * scoreUpdate.multiply) + "; ";
+		resultScore += scoreUpdate.amount * scoreUpdate.multiply;
+
+	Dialogic.VAR.coctailFullResult = result;
+	Dialogic.VAR.cocktailResultScore = str(resultScore);
+	Dialogic.start("CocktailResults");

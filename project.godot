@@ -29,6 +29,8 @@ Analytics="*uid://bbt6jf8icf28r"
 
 directories/dch_directory={}
 directories/dtl_directory={
+"CocktailFinished": "res://dialogic/timelines/CocktailFinished.dtl",
+"CocktailResults": "res://dialogic/timelines/CocktailResults.dtl",
 "Greetings": "res://dialogic/timelines/Greetings.dtl"
 }
 layout/style_directory={
@@ -70,6 +72,10 @@ audio/channel_defaults={
 }
 layout/style_list=["res://dialogic/styles/MainVNStyle.tres"]
 layout/default_style="res://dialogic/styles/MainVNStyle.tres"
+variables={
+"cocktailResultScore": "",
+"coctailFullResult": ""
+}
 
 [display]
 

@@ -1,0 +1,5 @@
+You gave the cocktail to the client
+Client impression\:
+{coctailFullResult}
+Cocktail Result\: {cocktailResultScore}
+do Global.finishClient()

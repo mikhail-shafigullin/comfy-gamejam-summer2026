@@ -25,4 +25,4 @@ func _ready() -> void:
 
 func _on_minigame_requested(ingredient: Node2D) -> void:
 	addIngredientMiniGame.start();
-	addIngredientMiniGame.finished.connect(func(result: String): _shaker.addIngredientFinish(ingredient, result), CONNECT_ONE_SHOT)
+	addIngredientMiniGame.finished.connect(func(result: CocktailMixingController.IngredientMiniGameStatus): _shaker.addIngredientFinish(ingredient, result), CONNECT_ONE_SHOT)

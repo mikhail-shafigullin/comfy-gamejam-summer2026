@@ -16,7 +16,7 @@ func addIngredient(ingredient: IngredientData, miniGameStatus: IngredientMiniGam
 	currentIngredients.push_back(ingredient);
 	currentMiniGames.push_back(miniGameStatus);
 
-func finishMixing():
+func finishCocktail():
 	var allRequestedIngredients: Array[IngredientData] = [];
 	allRequestedIngredients.append_array(orderedCocktail.ingredients);
 	allRequestedIngredients.append_array(additionalRequestedIngredients);
@@ -70,3 +70,12 @@ func clear():
 	orderedCocktail = null;
 	additionalRequestedIngredients.clear();
 	clearCurrentCocktail();
+
+static func getStatusName(status: IngredientMiniGameStatus) -> String:
+	if(status == IngredientMiniGameStatus.PERFECT):
+		return "Perfect";
+	elif(status == IngredientMiniGameStatus.GOOD):
+		return "Good";
+	else:
+		return "OK";
+	

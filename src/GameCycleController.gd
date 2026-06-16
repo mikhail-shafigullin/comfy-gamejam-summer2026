@@ -38,9 +38,15 @@ func deleteCocktail():
 func startDialogue():
 	var dialogue = currentClient.getNextBuzTalk();
 
-func finishCocktailMixing():
-	cocktailMixingController.finishMixing();
+func startShake():
 	EventBus.cocktailMixingFinished.emit();
+
+func cancelShake():
+	pass;
+
+func finishCocktail():
+	cocktailMixingController.finishCocktail();
+	EventBus.cocktailFinished.emit();
 
 func showResults():
 	var allResult: Array[ScoreUpdate] = [];

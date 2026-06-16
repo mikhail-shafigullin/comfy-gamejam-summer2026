@@ -32,6 +32,7 @@ func _ready() -> void:
 	random = RandomNumberGenerator.new();
 	_initIngredients();
 	_initCocktailRecipes();
+	_initScoreUpdates();
 
 func _initIngredients():
 	ingredientRum = IngredientData.new("Rum");
