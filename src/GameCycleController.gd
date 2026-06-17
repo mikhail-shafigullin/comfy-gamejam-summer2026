@@ -54,5 +54,5 @@ func showResults():
 	EventBus.clientAnnounceResults.emit(allResult);
 
 func finishClient():
+	cocktailMixingController.clear();
 	EventBus.clientFinish.emit();
-	

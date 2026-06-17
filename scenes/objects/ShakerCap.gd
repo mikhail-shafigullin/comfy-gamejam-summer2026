@@ -2,12 +2,15 @@ class_name ShakerCap
 extends Node2D
 
 @export var shakerObject: ShakerObject
+@export var shakerCapRestartMarker: Marker2D;
+
 @onready var _grabableComponent: GrabableComponent = %GrabableComponent
 
 var isEnabled: bool
 
 func _ready() -> void:
-	setEnabled(false);
+	clear();
+	EventBus.clientStart.connect(clear);
 	EventBus.cocktailOrdered.connect(cocktailOrdered)
 	EventBus.cocktailFinished.connect(func(): setEnabled(false))
 	_grabableComponent.dropped.connect(_onDropped)
@@ -33,3 +36,9 @@ func cocktailOrdered(_cocktail: CocktailRecipeData) -> void:
 func setEnabled(enabled: bool) -> void:
 	visible = enabled
 	isEnabled = enabled
+
+func clear():
+	setEnabled(false);
+	_grabableComponent.disableGrab(false);
+	position = shakerCapRestartMarker.position;
+	pass;

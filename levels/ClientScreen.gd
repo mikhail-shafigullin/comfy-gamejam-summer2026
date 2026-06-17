@@ -1,12 +1,14 @@
 extends Control
 
 @onready var client1: Sprite2D = %Client1;
+@onready var clientRestartTimer: Timer = %ClientRestartTimer;
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	EventBus.clientInit.connect(setClient);
 	EventBus.clientFinish.connect(removeClient);
 	EventBus.clientAnnounceResults.connect(showDialogueResult);
+	EventBus.clientFinish.connect(startTimerUpdateClient);
 
 	pass # Replace with function body.
 
@@ -21,6 +23,10 @@ func removeClient():
 	var tween := create_tween()
 	tween.tween_property(client1, "modulate:a", 0.0, 0.5)
 	tween.tween_callback(func(): client1.visible = false)
+
+func startTimerUpdateClient():
+	clientRestartTimer.timeout.connect(Global.gameCycle.initClient, CONNECT_ONE_SHOT)
+	clientRestartTimer.start();
 
 func startClientDialogue():
 	Dialogic.start("Greetings");

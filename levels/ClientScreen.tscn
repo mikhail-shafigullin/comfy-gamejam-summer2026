@@ -42,3 +42,7 @@ visible = false
 position = Vector2(207, 232)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("3_gb225")
+
+[node name="ClientRestartTimer" type="Timer" parent="." unique_id=771131229]
+unique_name_in_owner = true
+one_shot = true

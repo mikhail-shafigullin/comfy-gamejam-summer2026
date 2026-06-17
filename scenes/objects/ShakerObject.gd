@@ -16,12 +16,15 @@ var isEnabled: bool
 @onready var shakeProgressBar: ProgressBar = %ShakeProgressBar
 @onready var shakeFinishTimer: Timer = %ShakeFinishTimer
 
+@export var shakerRestartPositionMarker: Marker2D;
+
 var _shakeMiniGameActive: bool = false
 var _lastY: float = 0.0
 var _lastYVelocity: float = 0.0
 
 func _ready() -> void:
-	setEnabled(false);
+	clear();
+	EventBus.clientStart.connect(clear);
 	EventBus.cocktailOrdered.connect(cocktailOrdered);
 	EventBus.cocktailFinished.connect(showCocktailResult);
 
@@ -102,3 +105,10 @@ func showCocktailResult():
 func _on_shake_finish_timer_timeout() -> void:
 	Dialogic.start("CocktailFinished")
 	pass # Replace with function body.
+
+func clear():
+	setEnabled(false);
+	capSprite.visible = false;
+	position = shakerRestartPositionMarker.position;
+	grabableComponent.disableGrab(true);
+	pass;
