@@ -1,6 +1,6 @@
 extends Control
 
-@onready var client1: Sprite2D = %Client1;
+@onready var client1: AnimatedSprite2D = %ClientAnimSprite;
 @onready var clientRestartTimer: Timer = %ClientRestartTimer;
 
 # Called when the node enters the scene tree for the first time.

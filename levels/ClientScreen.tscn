@@ -4,7 +4,76 @@
 [ext_resource type="Script" uid="uid://ceplymgxht65" path="res://levels/ClientScreen.gd" id="1_csc0l"]
 [ext_resource type="Texture2D" uid="uid://3fnvtom2788b" path="res://assets/sprites/props/character_bg.png" id="4_r6qc6"]
 [ext_resource type="Texture2D" uid="uid://dii3p5wg4qxxk" path="res://assets/sprites/props/character_bg_palma.png" id="5_lsqgt"]
+[ext_resource type="Texture2D" uid="uid://ccwq144rxuilr" path="res://assets/sprites/props/girl1_open.png" id="6_qj508"]
 [ext_resource type="Texture2D" uid="uid://cix4w1ia3773e" path="res://assets/sprites/props/girl1_close.png" id="6_uev6b"]
+[ext_resource type="Texture2D" uid="uid://b10gftmk62t7d" path="res://assets/sprites/props/girl2_close.png" id="7_bqjb6"]
+[ext_resource type="Texture2D" uid="uid://83kspbqieda6" path="res://assets/sprites/props/girl3_close.png" id="8_uu8es"]
+[ext_resource type="Texture2D" uid="uid://3jg2k4w5kqaw" path="res://assets/sprites/props/girl2_open.png" id="9_2mluy"]
+[ext_resource type="Texture2D" uid="uid://ck4ihwyf2xxuh" path="res://assets/sprites/props/girl3_open.png" id="10_7lhyb"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bqjb6"]
+atlas = ExtResource("6_uev6b")
+region = Rect2(0, 0, 323, 323)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_uu8es"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bqjb6")
+}],
+"loop": true,
+"name": &"idle1",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("7_bqjb6")
+}],
+"loop": true,
+"name": &"idle2",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("8_uu8es")
+}],
+"loop": true,
+"name": &"idle3",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bqjb6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_qj508")
+}],
+"loop": true,
+"name": &"talk1",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("7_bqjb6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_2mluy")
+}],
+"loop": true,
+"name": &"talk2",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("8_uu8es")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_7lhyb")
+}],
+"loop": true,
+"name": &"talk3",
+"speed": 5.0
+}]
 
 [node name="ClientScreen" type="Control" unique_id=173617116]
 layout_mode = 3
@@ -46,11 +115,12 @@ texture = ExtResource("4_r6qc6")
 position = Vector2(156, 159.5)
 texture = ExtResource("5_lsqgt")
 
-[node name="Client1" type="Sprite2D" parent="SubViewportContainer/SubViewport" unique_id=210425759]
+[node name="ClientAnimSprite" type="AnimatedSprite2D" parent="SubViewportContainer/SubViewport" unique_id=1511377581]
 unique_name_in_owner = true
 visible = false
-position = Vector2(155, 157.5)
-texture = ExtResource("6_uev6b")
+position = Vector2(157, 156)
+sprite_frames = SubResource("SpriteFrames_uu8es")
+animation = &"idle3"
 
 [node name="ClientRestartTimer" type="Timer" parent="." unique_id=771131229]
 unique_name_in_owner = true
