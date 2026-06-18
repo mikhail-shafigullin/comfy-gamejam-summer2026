@@ -1,2 +1,5 @@
-123123
+[signal arg="startTalk"]
+Hi
+Can you mix for me PinaColada?
+[signal arg="stopTalk"]
 do Global.startClientInteraction()

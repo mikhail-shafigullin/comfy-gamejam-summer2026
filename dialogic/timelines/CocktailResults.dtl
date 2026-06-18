@@ -1,5 +1,7 @@
 You gave the cocktail to the client
+[signal arg="startTalk"]
 Client impression\:
 {coctailFullResult}
 Cocktail Result\: {cocktailResultScore}
+[signal arg="stopTalk"]
 do Global.finishClient()

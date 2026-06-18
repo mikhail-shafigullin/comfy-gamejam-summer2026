@@ -2,6 +2,7 @@ extends Control
 
 @onready var client1: AnimatedSprite2D = %ClientAnimSprite;
 @onready var clientRestartTimer: Timer = %ClientRestartTimer;
+var currentClientData: ClientData;
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -10,10 +11,13 @@ func _ready() -> void:
 	EventBus.clientAnnounceResults.connect(showDialogueResult);
 	EventBus.clientFinish.connect(startTimerUpdateClient);
 
+	Dialogic.signal_event.connect(dialogicEvent);
+
 	pass # Replace with function body.
 
 func setClient(clientData: ClientData):
-	client1.animation = 'idle' + str(clientData.clientNumber + 1)
+	currentClientData = clientData;
+	client1.animation = getAnim('idle');
 	client1.modulate.a = 0.0
 	client1.visible = true
 	var tween := create_tween()
@@ -32,7 +36,6 @@ func startTimerUpdateClient():
 func startClientDialogue():
 	Dialogic.start("Greetings");
 	pass;
-
 	
 func showDialogueResult(scoreUpdates: Array[ScoreUpdate]):
 	var result: String = "";
@@ -44,3 +47,16 @@ func showDialogueResult(scoreUpdates: Array[ScoreUpdate]):
 	Dialogic.VAR.coctailFullResult = result;
 	Dialogic.VAR.cocktailResultScore = str(resultScore);
 	Dialogic.start("CocktailResults");
+
+func getAnim(prefix: String) -> String:
+	var animSuffix = str(currentClientData.clientNumber + 1);
+	return prefix + animSuffix
+
+func dialogicEvent(eventName: String):
+	if (eventName == "startTalk"):
+		client1.animation = getAnim('talk');
+		client1.play();
+	elif (eventName == "stopTalk"):
+		client1.animation = getAnim('idle');
+		client1.play();
+	pass;
