@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://csrmqxuou7sml" path="res://levels/ClientScreen.tscn" id="4_1obit"]
 [ext_resource type="Script" uid="uid://8ojujrxluy8o" path="res://src/GameCycleController.gd" id="4_584rv"]
 [ext_resource type="PackedScene" uid="uid://dlqq0rwjeh1yb" path="res://levels/RecipeScreen.tscn" id="5_1obit"]
+[ext_resource type="Texture2D" uid="uid://cv5w00kcx72i2" path="res://assets/sprites/props/Podlozhka.png" id="7_7eiue"]
 
 [node name="MainScreen" type="Control" unique_id=2002646227]
 layout_mode = 3
@@ -82,3 +83,9 @@ layout_mode = 1
 
 [node name="GameCycle" type="Node" parent="." unique_id=1095228021]
 script = ExtResource("4_584rv")
+
+[node name="Podlozhka" type="Sprite2D" parent="." unique_id=473045801]
+visible = false
+position = Vector2(640, 514)
+scale = Vector2(0.9444445, 0.9444444)
+texture = ExtResource("7_7eiue")
