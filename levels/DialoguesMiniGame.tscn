@@ -1,0 +1,40 @@
+[gd_scene format=3 uid="uid://bjx2vwih3cmcp"]
+
+[ext_resource type="Script" uid="uid://crqitivmwslth" path="res://levels/DialogueMiniGame.gd" id="1_4igow"]
+[ext_resource type="PackedScene" uid="uid://c0sogq5lwusx" path="res://levels/dialogueMiniGameTemplate.tscn" id="2_yjs8b"]
+
+[node name="DialoguesMiniGame" type="Control" unique_id=2010436925]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("1_4igow")
+
+[node name="DialogueTemplate" parent="." unique_id=584895211 instance=ExtResource("2_yjs8b")]
+layout_mode = 0
+offset_left = -280.0
+offset_top = -232.0
+offset_right = 104.0
+offset_bottom = -104.0
+
+[node name="SpawnTimer" type="Timer" parent="." unique_id=-1282119665]
+unique_name_in_owner = true
+wait_time = 8.0
+autostart = true
+
+[node name="DialogueBorders" type="Control" parent="." unique_id=2143151517]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 64.0
+offset_top = 64.0
+offset_right = -64.0
+offset_bottom = -256.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2

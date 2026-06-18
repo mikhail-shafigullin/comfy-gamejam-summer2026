@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://bxk5txju08l63"]
 
 [ext_resource type="Script" uid="uid://d3ert22prxvow" path="res://levels/MainScreen.gd" id="1_iaptt"]
+[ext_resource type="PackedScene" uid="uid://bjx2vwih3cmcp" path="res://levels/DialoguesMiniGame.tscn" id="2_vrrex"]
 [ext_resource type="PackedScene" uid="uid://bf3n8xh6p8lhc" path="res://levels/CocktailMixingScreen.tscn" id="3_584rv"]
 [ext_resource type="PackedScene" uid="uid://csrmqxuou7sml" path="res://levels/ClientScreen.tscn" id="4_1obit"]
 [ext_resource type="Script" uid="uid://8ojujrxluy8o" path="res://src/GameCycleController.gd" id="4_584rv"]
@@ -74,6 +75,9 @@ layout_mode = 1
 layout_mode = 1
 
 [node name="RecipeScreen" parent="." unique_id=2131600368 instance=ExtResource("5_1obit")]
+layout_mode = 1
+
+[node name="MiniGameDialogues" parent="." unique_id=2010436925 instance=ExtResource("2_vrrex")]
 layout_mode = 1
 
 [node name="GameCycle" type="Node" parent="." unique_id=1095228021]
