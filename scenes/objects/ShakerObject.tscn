@@ -1,43 +1,42 @@
 [gd_scene format=3 uid="uid://c74p85pyna2bf"]
 
-[ext_resource type="Texture2D" uid="uid://by6hohiajk4sb" path="res://assets/sprites/Glass_Background.png" id="1_afoa8"]
 [ext_resource type="Script" uid="uid://cqjobj5o78qjr" path="res://scenes/objects/ShakerObject.gd" id="1_j4bmh"]
+[ext_resource type="Texture2D" uid="uid://c7ekk42ae3qls" path="res://assets/sprites/props/Sheiker_down.png" id="2_7rmrs"]
 [ext_resource type="Texture2D" uid="uid://dqp8px8sg3k45" path="res://assets/sprites/Glass_Foreground.png" id="2_j4bmh"]
 [ext_resource type="Script" uid="uid://c84gilgsuvqm5" path="res://components/GrabableComponent.gd" id="4_0p30w"]
+[ext_resource type="Texture2D" uid="uid://drtvif72ebvc1" path="res://assets/sprites/props/Sheiker_up.png" id="4_f5hdj"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_j4bmh"]
-size = Vector2(133, 153)
+size = Vector2(96, 112)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0p30w"]
-size = Vector2(120, 248)
+size = Vector2(96, 184)
 
 [node name="Shaker" type="Node2D" unique_id=1170390427]
 script = ExtResource("1_j4bmh")
 
 [node name="GlassBackground" type="Sprite2D" parent="." unique_id=1641604231]
 position = Vector2(71, 85)
-scale = Vector2(0.5, 0.5)
-texture = ExtResource("1_afoa8")
+texture = ExtResource("2_7rmrs")
 metadata/_edit_group_ = true
 
 [node name="GlassForeground" type="Sprite2D" parent="." unique_id=1466441797]
+visible = false
 position = Vector2(70, 86)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("2_j4bmh")
 
 [node name="CapSprite" type="Sprite2D" parent="." unique_id=354057088]
 unique_name_in_owner = true
-visible = false
-position = Vector2(80, -24)
-rotation = 3.1415925
-scale = Vector2(0.4, 0.4)
-texture = ExtResource("2_j4bmh")
+position = Vector2(72, 80)
+rotation = -6.2831855
+texture = ExtResource("4_f5hdj")
 
 [node name="Area2D" type="Area2D" parent="." unique_id=1847767884]
 unique_name_in_owner = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=2082913765]
-position = Vector2(75.5, 84.5)
+position = Vector2(72, 120)
 shape = SubResource("RectangleShape2D_j4bmh")
 
 [node name="GrabableComponent" type="Node" parent="." unique_id=40952499]
@@ -49,7 +48,7 @@ isGrabDisabled = true
 input_pickable = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=245711674]
-position = Vector2(76, 36)
+position = Vector2(72, 84)
 shape = SubResource("RectangleShape2D_0p30w")
 
 [node name="ShakeMiniGameControl" type="Control" parent="." unique_id=1145933531]
@@ -57,10 +56,10 @@ unique_name_in_owner = true
 visible = false
 layout_mode = 3
 anchors_preset = 0
-offset_left = -120.0
-offset_top = -88.0
-offset_right = -8.0
-offset_bottom = 176.0
+offset_left = -96.0
+offset_top = -8.0
+offset_right = 16.0
+offset_bottom = 184.0
 
 [node name="ShakeProgressBar" type="ProgressBar" parent="ShakeMiniGameControl" unique_id=1169234494]
 unique_name_in_owner = true
@@ -79,18 +78,19 @@ show_percentage = false
 
 [node name="Label" type="Label" parent="ShakeMiniGameControl" unique_id=180079704]
 layout_mode = 0
-offset_top = 96.0
-offset_right = 66.0
-offset_bottom = 119.0
+offset_left = 72.0
+offset_top = -16.0
+offset_right = 138.0
+offset_bottom = 7.0
 rotation = -0.5235988
 text = "Shake it!"
 
 [node name="Label2" type="Label" parent="ShakeMiniGameControl" unique_id=1114863666]
 layout_mode = 0
-offset_left = 8.0
-offset_top = 160.0
-offset_right = 74.0
-offset_bottom = 183.0
+offset_left = 224.0
+offset_top = -31.999992
+offset_right = 290.0
+offset_bottom = -8.999992
 rotation = 0.5235988
 text = "Shake it!"
 

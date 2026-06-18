@@ -3,8 +3,8 @@ extends Control
 const AddIngredientMinigame = preload("res://scenes/minigames/AddIngredientMinigame.tscn")
 
 @onready var _subviewport: SubViewport = $SubViewportContainer/SubViewport
-@onready var _shaker: ShakerObject = $SubViewportContainer/SubViewport/Shaker
-@onready var _shakerCap: ShakerCap = $SubViewportContainer/SubViewport/ShakerCap
+@onready var _shaker: ShakerObject = %Shaker
+@onready var _shakerCap: ShakerCap = %ShakerCap
 @onready var addIngredientMiniGame: AddIngredientMiniGame = %AddIngredientMinigame;
 @onready var curtain: ColorRect = %Curtain
 
@@ -13,9 +13,9 @@ func _ready() -> void:
 	_shakerCap.shakerObject = _shaker
 
 	var ingredients: Array[Node2D] = [
-		$SubViewportContainer/SubViewport/MilkBottle,
-		$SubViewportContainer/SubViewport/PineappleBottle,
-		$SubViewportContainer/SubViewport/Rum,
+		%MilkBottle,
+		%PineappleBottle,
+		%Rum,
 	]
 	for ingredient in ingredients:
 		var grab := ingredient.get_node("GrabableComponent") as GrabableComponent

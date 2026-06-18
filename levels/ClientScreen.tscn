@@ -2,7 +2,9 @@
 
 [ext_resource type="Texture2D" uid="uid://dvjgpx65l7eax" path="res://assets/sprites/debug/ComfyJam-Summer2026_001.png" id="1_8yjf6"]
 [ext_resource type="Script" uid="uid://ceplymgxht65" path="res://levels/ClientScreen.gd" id="1_csc0l"]
-[ext_resource type="Texture2D" uid="uid://d4muwjbc3sd86" path="res://assets/sprites/ComfyJam-Summer2026_girl1.png" id="3_gb225"]
+[ext_resource type="Texture2D" uid="uid://3fnvtom2788b" path="res://assets/sprites/props/character_bg.png" id="4_r6qc6"]
+[ext_resource type="Texture2D" uid="uid://dii3p5wg4qxxk" path="res://assets/sprites/props/character_bg_palma.png" id="5_lsqgt"]
+[ext_resource type="Texture2D" uid="uid://cix4w1ia3773e" path="res://assets/sprites/props/girl1_close.png" id="6_uev6b"]
 
 [node name="ClientScreen" type="Control" unique_id=173617116]
 layout_mode = 3
@@ -11,8 +13,8 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 offset_left = 816.0
 offset_top = 51.0
-offset_right = -48.0
-offset_bottom = -551.0
+offset_right = -152.0
+offset_bottom = -660.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_csc0l")
@@ -22,26 +24,33 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_right = 2.0
-offset_bottom = 4.0
 grow_horizontal = 2
 grow_vertical = 2
+stretch = true
 
 [node name="SubViewport" type="SubViewport" parent="SubViewportContainer" unique_id=1351057798]
 handle_input_locally = false
-size = Vector2i(418, 426)
+size = Vector2i(312, 313)
 render_target_update_mode = 4
 
 [node name="Background" type="Sprite2D" parent="SubViewportContainer/SubViewport" unique_id=581419530]
+visible = false
 position = Vector2(-179, 467)
 texture = ExtResource("1_8yjf6")
 
-[node name="Client1" type="Sprite2D" parent="SubViewportContainer/SubViewport" unique_id=556902414]
+[node name="CharacterBg" type="Sprite2D" parent="SubViewportContainer/SubViewport" unique_id=243249903]
+position = Vector2(157, 158.5)
+texture = ExtResource("4_r6qc6")
+
+[node name="CharacterBgPalma" type="Sprite2D" parent="SubViewportContainer/SubViewport" unique_id=65579184]
+position = Vector2(156, 159.5)
+texture = ExtResource("5_lsqgt")
+
+[node name="Client1" type="Sprite2D" parent="SubViewportContainer/SubViewport" unique_id=210425759]
 unique_name_in_owner = true
 visible = false
-position = Vector2(207, 232)
-scale = Vector2(0.5, 0.5)
-texture = ExtResource("3_gb225")
+position = Vector2(155, 157.5)
+texture = ExtResource("6_uev6b")
 
 [node name="ClientRestartTimer" type="Timer" parent="." unique_id=771131229]
 unique_name_in_owner = true

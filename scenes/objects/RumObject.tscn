@@ -1,21 +1,29 @@
 [gd_scene format=3 uid="uid://yhw318gg5vjb"]
 
 [ext_resource type="Script" uid="uid://bwewhh3gr6dam" path="res://scenes/objects/RumIngredientObject.gd" id="1_h04hl"]
-[ext_resource type="Texture2D" uid="uid://ccbg31qel1oan" path="res://assets/sprites/ComfyJam-Summer2026_botttle.png" id="1_mtrvo"]
+[ext_resource type="Texture2D" uid="uid://b8qlv38kms7ph" path="res://assets/sprites/props/rum_back.png" id="2_2y8lo"]
 [ext_resource type="Script" uid="uid://c84gilgsuvqm5" path="res://components/GrabableComponent.gd" id="2_h04hl"]
+[ext_resource type="Texture2D" uid="uid://xvatithl72vp" path="res://assets/sprites/props/rum_zhidkost.png" id="4_t4wdv"]
+[ext_resource type="Texture2D" uid="uid://xpdr6xv0hkpt" path="res://assets/sprites/props/rum_front.png" id="5_gcyeh"]
 
 [node name="RumBottle" type="Node2D" unique_id=1146163768]
 script = ExtResource("1_h04hl")
 
 [node name="ComfyJamSummer2026Botttle" type="Sprite2D" parent="." unique_id=1263969476]
-scale = Vector2(0.5, 0.5)
-texture = ExtResource("1_mtrvo")
+texture = ExtResource("2_2y8lo")
+
+[node name="RumZhidkost" type="Sprite2D" parent="." unique_id=1986472039]
+texture = ExtResource("4_t4wdv")
+
+[node name="RumFront" type="Sprite2D" parent="." unique_id=964966509]
+texture = ExtResource("5_gcyeh")
 
 [node name="GrabableComponent" type="Node" parent="." unique_id=293502135]
 script = ExtResource("2_h04hl")
 grabableRotate = true
 
 [node name="Label" type="Label" parent="." unique_id=2119736068]
+visible = false
 offset_left = -30.0
 offset_top = -17.0
 offset_right = 33.0
@@ -26,5 +34,5 @@ text = "rum"
 [node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=1578548011]
 input_pickable = true
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D" unique_id=1253546735]
-polygon = PackedVector2Array(-24, -88, -24, -32, -56, 0, -56, 128, -24, 144, 16, 144, 48, 128, 64, 32, 48, -16, 24, -32, 24, -80, 48, -96, 48, -112, 32, -120, -24, -120, -32, -112, -32, -96)
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D" unique_id=15067621]
+polygon = PackedVector2Array(-24, -16, -48, 16, -40, 56, -32, 72, 0, 80, 32, 80, 48, 24, 40, -8, 16, -16, 8, -32, 16, -40, 16, -64, 0, -80, -16, -72, -24, -40, -16, -32)

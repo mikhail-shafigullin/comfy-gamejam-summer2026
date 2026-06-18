@@ -19,6 +19,7 @@ mouse_filter = 2
 script = ExtResource("1_iaptt")
 
 [node name="borders" type="Control" parent="." unique_id=1064619904]
+visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -71,21 +72,35 @@ color = Color(0.24313726, 0.09019608, 0.18039216, 1)
 
 [node name="CocktailMixingScreen" parent="." unique_id=562281540 instance=ExtResource("3_584rv")]
 layout_mode = 1
+offset_left = 151.0
+offset_top = 25.0
+offset_right = -441.0
+offset_bottom = -203.0
 
 [node name="ClientScreen" parent="." unique_id=173617116 instance=ExtResource("4_1obit")]
 layout_mode = 1
+offset_top = 26.0
+offset_bottom = -685.0
 
 [node name="RecipeScreen" parent="." unique_id=2131600368 instance=ExtResource("5_1obit")]
 layout_mode = 1
-
-[node name="MiniGameDialogues" parent="." unique_id=2010436925 instance=ExtResource("2_vrrex")]
-layout_mode = 1
+offset_top = 365.0
+offset_bottom = -346.0
 
 [node name="GameCycle" type="Node" parent="." unique_id=1095228021]
 script = ExtResource("4_584rv")
 
 [node name="Podlozhka" type="Sprite2D" parent="." unique_id=473045801]
-visible = false
 position = Vector2(640, 514)
 scale = Vector2(0.9444445, 0.9444444)
 texture = ExtResource("7_7eiue")
+
+[node name="Control" type="Control" parent="." unique_id=934228206]
+anchors_preset = 0
+offset_left = 820.0
+offset_top = 360.0
+offset_right = 1128.0
+offset_bottom = 673.0
+
+[node name="MiniGameDialogues" parent="." unique_id=2010436925 instance=ExtResource("2_vrrex")]
+layout_mode = 1

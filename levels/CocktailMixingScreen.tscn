@@ -8,6 +8,9 @@
 [ext_resource type="PackedScene" uid="uid://bgehynp363i4e" path="res://scenes/objects/MilkObject.tscn" id="4_lxkw4"]
 [ext_resource type="PackedScene" uid="uid://c74p85pyna2bf" path="res://scenes/objects/ShakerObject.tscn" id="4_pj4pp"]
 [ext_resource type="PackedScene" uid="uid://cmpjgil10frwi" path="res://scenes/objects/shakerСap.tscn" id="8_7nt35"]
+[ext_resource type="PackedScene" uid="uid://bvcdxc36q6ppe" path="res://scenes/objects/MintBox.tscn" id="8_v7b75"]
+[ext_resource type="PackedScene" uid="uid://j1h8ca42ut2h" path="res://scenes/objects/LimeBox.tscn" id="9_arhdh"]
+[ext_resource type="Texture2D" uid="uid://cidg0v1j5x3iu" path="res://assets/sprites/props/osnovnoi_bg.png" id="9_sj2v1"]
 
 [node name="BarMixingScreen" type="Control" unique_id=562281540]
 layout_mode = 3
@@ -16,8 +19,8 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 offset_left = 75.0
 offset_top = 51.0
-offset_right = -517.0
-offset_bottom = -177.0
+offset_right = -557.0
+offset_bottom = -324.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
@@ -26,13 +29,8 @@ script = ExtResource("1_ay30o")
 [node name="SubViewportContainer" type="SubViewportContainer" parent="." unique_id=1536860121]
 clip_contents = true
 layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_right = 2.0
-offset_bottom = 4.0
-grow_horizontal = 2
-grow_vertical = 2
+offset_right = 648.0
+offset_bottom = 649.0
 mouse_target = true
 
 [node name="AddIngredientMinigame" parent="SubViewportContainer" unique_id=752983230 instance=ExtResource("2_lxkw4")]
@@ -42,32 +40,57 @@ layout_mode = 2
 
 [node name="SubViewport" type="SubViewport" parent="SubViewportContainer" unique_id=666815101]
 handle_input_locally = false
-size = Vector2i(690, 800)
+size = Vector2i(648, 649)
 render_target_update_mode = 4
 
-[node name="ComfyJamSummer2026001" type="Sprite2D" parent="SubViewportContainer/SubViewport" unique_id=1780928947]
+[node name="Node2D2" type="Node2D" parent="SubViewportContainer/SubViewport" unique_id=761314638]
+y_sort_enabled = true
+
+[node name="ComfyJamSummer2026001" type="Sprite2D" parent="SubViewportContainer/SubViewport/Node2D2" unique_id=1780928947]
+visible = false
 position = Vector2(576, 458)
 texture = ExtResource("1_p7gku")
 
-[node name="ShakerRestartMarker" type="Marker2D" parent="SubViewportContainer/SubViewport" unique_id=1213233262]
-position = Vector2(240, 484)
+[node name="OsnovnoiBg" type="Sprite2D" parent="SubViewportContainer/SubViewport/Node2D2" unique_id=767478257]
+z_index = -1
+position = Vector2(324.99997, 325)
+scale = Vector2(0.9444445, 0.9444444)
+texture = ExtResource("9_sj2v1")
 
-[node name="Node2D" type="Node2D" parent="SubViewportContainer/SubViewport" unique_id=567319740]
+[node name="ShakerRestartMarker" type="Marker2D" parent="SubViewportContainer/SubViewport/Node2D2" unique_id=1213233262]
+position = Vector2(224, 429)
 
-[node name="Shaker" parent="SubViewportContainer/SubViewport" unique_id=1170390427 node_paths=PackedStringArray("shakerRestartPositionMarker") instance=ExtResource("4_pj4pp")]
-position = Vector2(240, 484)
+[node name="Node2D" type="Node2D" parent="SubViewportContainer/SubViewport/Node2D2" unique_id=567319740]
+
+[node name="Shaker" parent="SubViewportContainer/SubViewport/Node2D2" unique_id=1170390427 node_paths=PackedStringArray("shakerRestartPositionMarker") instance=ExtResource("4_pj4pp")]
+unique_name_in_owner = true
+position = Vector2(224, 429)
 shakerRestartPositionMarker = NodePath("../ShakerRestartMarker")
 
-[node name="PineappleBottle" parent="SubViewportContainer/SubViewport" unique_id=1146163768 instance=ExtResource("3_rxol5")]
-position = Vector2(336, 272)
+[node name="MilkBottle" parent="SubViewportContainer/SubViewport/Node2D2" unique_id=1147270225 instance=ExtResource("4_lxkw4")]
+unique_name_in_owner = true
+y_sort_enabled = true
+position = Vector2(581, 461)
 
-[node name="MilkBottle" parent="SubViewportContainer/SubViewport" unique_id=1147270225 instance=ExtResource("4_lxkw4")]
-position = Vector2(132, 268)
+[node name="Rum" parent="SubViewportContainer/SubViewport/Node2D2" unique_id=1034362187 instance=ExtResource("2_ay30o")]
+unique_name_in_owner = true
+y_sort_enabled = true
+position = Vector2(477, 429)
 
-[node name="Rum" parent="SubViewportContainer/SubViewport" unique_id=1034362187 instance=ExtResource("2_ay30o")]
-position = Vector2(515, 280)
+[node name="MintBox" parent="SubViewportContainer/SubViewport/Node2D2" unique_id=1563244293 instance=ExtResource("8_v7b75")]
+unique_name_in_owner = true
+position = Vector2(69, 434)
 
-[node name="Curtain" type="ColorRect" parent="SubViewportContainer/SubViewport" unique_id=1405940274]
+[node name="LimeBox" parent="SubViewportContainer/SubViewport/Node2D2" unique_id=398750435 instance=ExtResource("9_arhdh")]
+unique_name_in_owner = true
+position = Vector2(69, 501)
+
+[node name="PineappleBottle" parent="SubViewportContainer/SubViewport/Node2D2" unique_id=1146163768 instance=ExtResource("3_rxol5")]
+unique_name_in_owner = true
+y_sort_enabled = true
+position = Vector2(581, 541)
+
+[node name="Curtain" type="ColorRect" parent="SubViewportContainer/SubViewport/Node2D2" unique_id=1405940274]
 unique_name_in_owner = true
 visible = false
 anchors_preset = 15
@@ -77,10 +100,12 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0.24313726, 0.09019608, 0.18039216, 0.70980394)
 
-[node name="ShakerCap" parent="SubViewportContainer/SubViewport" unique_id=445009367 node_paths=PackedStringArray("shakerObject", "shakerCapRestartMarker") instance=ExtResource("8_7nt35")]
-position = Vector2(541, 573)
+[node name="ShakerCap" parent="SubViewportContainer/SubViewport/Node2D2" unique_id=445009367 node_paths=PackedStringArray("shakerObject", "shakerCapRestartMarker") instance=ExtResource("8_7nt35")]
+unique_name_in_owner = true
+y_sort_enabled = true
+position = Vector2(397, 573)
 shakerObject = NodePath("../Shaker")
 shakerCapRestartMarker = NodePath("../ShakerCapRestartMarker")
 
-[node name="ShakerCapRestartMarker" type="Marker2D" parent="SubViewportContainer/SubViewport" unique_id=790184334]
-position = Vector2(541, 573)
+[node name="ShakerCapRestartMarker" type="Marker2D" parent="SubViewportContainer/SubViewport/Node2D2" unique_id=790184334]
+position = Vector2(397, 573)

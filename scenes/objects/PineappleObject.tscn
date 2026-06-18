@@ -1,21 +1,21 @@
 [gd_scene format=3 uid="uid://bae3r6g0vgr1u"]
 
 [ext_resource type="Script" uid="uid://bjaitjs6ykm36" path="res://scenes/objects/PineappleIngredientObject.gd" id="1_hracu"]
-[ext_resource type="Texture2D" uid="uid://ccbg31qel1oan" path="res://assets/sprites/ComfyJam-Summer2026_botttle.png" id="1_w14jg"]
 [ext_resource type="Script" uid="uid://c84gilgsuvqm5" path="res://components/GrabableComponent.gd" id="2_hracu"]
+[ext_resource type="Texture2D" uid="uid://jpktdmbyre22" path="res://assets/sprites/props/pineapple_juice.png" id="2_qglxd"]
 
 [node name="PineappleBottle" type="Node2D" unique_id=1146163768]
 script = ExtResource("1_hracu")
 
 [node name="ComfyJamSummer2026Botttle" type="Sprite2D" parent="." unique_id=1263969476]
-scale = Vector2(0.5, 0.5)
-texture = ExtResource("1_w14jg")
+texture = ExtResource("2_qglxd")
 
 [node name="GrabableComponent" type="Node" parent="." unique_id=293502135]
 script = ExtResource("2_hracu")
 grabableRotate = true
 
 [node name="Label" type="Label" parent="." unique_id=1740832105]
+visible = false
 offset_left = -70.0
 offset_top = -13.0
 offset_right = 74.0
@@ -27,5 +27,5 @@ juice"
 [node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=1578548011]
 input_pickable = true
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D" unique_id=1253546735]
-polygon = PackedVector2Array(-24, -88, -24, -32, -56, 0, -56, 128, -24, 144, 16, 144, 48, 128, 64, 32, 48, -16, 24, -32, 24, -80, 48, -96, 48, -112, 32, -120, -24, -120, -32, -112, -32, -96)
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D" unique_id=462716195]
+polygon = PackedVector2Array(-48, -40, -24, -56, 24, -56, 48, -40, 48, 8, 32, 56, -24, 56, -48, 16)

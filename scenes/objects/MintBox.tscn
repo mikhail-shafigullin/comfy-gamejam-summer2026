@@ -1,0 +1,35 @@
+[gd_scene format=3 uid="uid://bvcdxc36q6ppe"]
+
+[ext_resource type="Script" uid="uid://3np1cukvc4y3" path="res://scenes/objects/MintBoxIngredientObject.gd" id="1_m7vdd"]
+[ext_resource type="Texture2D" uid="uid://dc20mi46k8hm1" path="res://assets/sprites/props/box_myata.png" id="2_m7vdd"]
+[ext_resource type="Script" uid="uid://c84gilgsuvqm5" path="res://components/GrabableComponent.gd" id="5_114j1"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_m7vdd"]
+size = Vector2(144, 88)
+
+[node name="MintBox" type="Node2D" unique_id=1563244293]
+y_sort_enabled = true
+script = ExtResource("1_m7vdd")
+
+[node name="ComfyJamSummer2026Botttle" type="Sprite2D" parent="." unique_id=632582730]
+texture = ExtResource("2_m7vdd")
+
+[node name="GrabableComponent" type="Node" parent="." unique_id=1418828454]
+script = ExtResource("5_114j1")
+grabableRotate = true
+
+[node name="Label" type="Label" parent="." unique_id=672303899]
+visible = false
+offset_left = -30.0
+offset_top = -17.0
+offset_right = 33.0
+offset_bottom = 25.0
+theme_override_font_sizes/font_size = 30
+text = "rum"
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=1735768137]
+input_pickable = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=1387462384]
+position = Vector2(0, 4)
+shape = SubResource("RectangleShape2D_m7vdd")

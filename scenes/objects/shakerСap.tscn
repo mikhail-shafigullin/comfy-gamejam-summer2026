@@ -1,27 +1,25 @@
 [gd_scene format=3 uid="uid://cmpjgil10frwi"]
 
 [ext_resource type="Script" uid="uid://4sivvghpix3p" path="res://scenes/objects/ShakerCap.gd" id="1_lvxpn"]
-[ext_resource type="Texture2D" uid="uid://dqp8px8sg3k45" path="res://assets/sprites/Glass_Foreground.png" id="1_wjm8e"]
+[ext_resource type="Texture2D" uid="uid://drtvif72ebvc1" path="res://assets/sprites/props/Sheiker_up.png" id="2_mrfqf"]
 [ext_resource type="Script" uid="uid://c84gilgsuvqm5" path="res://components/GrabableComponent.gd" id="3_mrfqf"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_sj2v1"]
-size = Vector2(111, 112)
+size = Vector2(88, 96)
 
 [node name="ShakerCap" type="Node2D" unique_id=445009367]
 script = ExtResource("1_lvxpn")
 
 [node name="GlassForeground" type="Sprite2D" parent="." unique_id=156129326]
-position = Vector2(6.000004, -1.9999924)
-rotation = -3.1415927
-scale = Vector2(0.4, 0.4)
-texture = ExtResource("1_wjm8e")
+position = Vector2(1, 32)
+texture = ExtResource("2_mrfqf")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=951913547]
 unique_name_in_owner = true
 position = Vector2(-64, -88)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=1362680154]
-position = Vector2(64.5, 88)
+position = Vector2(68, 88)
 shape = SubResource("RectangleShape2D_sj2v1")
 
 [node name="GrabableComponent" type="Node" parent="." unique_id=315686574]
