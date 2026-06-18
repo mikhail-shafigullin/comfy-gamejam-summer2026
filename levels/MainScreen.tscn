@@ -18,6 +18,14 @@ grow_vertical = 2
 mouse_filter = 2
 script = ExtResource("1_iaptt")
 
+[node name="ColorRect" type="ColorRect" parent="." unique_id=587676664]
+layout_mode = 0
+offset_left = 184.0
+offset_top = 720.0
+offset_right = 1112.0
+offset_bottom = 1024.0
+color = Color(0.54509807, 0.22745098, 0.28627452, 1)
+
 [node name="borders" type="Control" parent="." unique_id=1064619904]
 visible = false
 layout_mode = 1
@@ -91,8 +99,8 @@ offset_bottom = -346.0
 script = ExtResource("4_584rv")
 
 [node name="Podlozhka" type="Sprite2D" parent="." unique_id=473045801]
-position = Vector2(640, 514)
-scale = Vector2(0.9444445, 0.9444444)
+position = Vector2(643.55536, 512.00006)
+scale = Vector2(0.948148, 0.94814795)
 texture = ExtResource("7_7eiue")
 
 [node name="Control" type="Control" parent="." unique_id=934228206]

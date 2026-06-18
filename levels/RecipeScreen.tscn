@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://c8b80wpafpw1a" path="res://levels/RecipeScreen.gd" id="1_58xx5"]
 [ext_resource type="Texture2D" uid="uid://bqgwx3foqokjw" path="res://assets/sprites/props/book_main.png" id="2_58xx5"]
+[ext_resource type="Texture2D" uid="uid://bthjvun2j4wkf" path="res://assets/sprites/props/book_ananaslimonad.png" id="3_7jodx"]
 
 [node name="RecipeScreen" type="Control" unique_id=2131600368]
 layout_mode = 3
@@ -29,6 +30,12 @@ stretch = true
 handle_input_locally = false
 size = Vector2i(308, 313)
 render_target_update_mode = 4
+
+[node name="BookAnanaslimonad" type="Sprite2D" parent="SubViewportContainer/SubViewport" unique_id=2070795301]
+z_index = 1
+position = Vector2(155.00006, 153)
+scale = Vector2(0.948148, 0.94814795)
+texture = ExtResource("3_7jodx")
 
 [node name="ComfyJamSummer2026001" type="Sprite2D" parent="SubViewportContainer/SubViewport" unique_id=615586028]
 position = Vector2(157.99998, 154)
