@@ -19,6 +19,10 @@ func initClient():
 	var newClient = ClientData.new();
 	newClient.clientName = "Innokentii Petrov"
 	newClient.initialCocktailRecipe = Resources.recipePinaKolada;
+	if(currentClient):
+		newClient.clientNumber = (currentClient.clientNumber + 1) % 3;
+	else: 
+		newClient.clientNumber = 0;
 	currentClient = newClient;
 	EventBus.clientInit.emit(newClient);
 

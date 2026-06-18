@@ -13,6 +13,7 @@ func _ready() -> void:
 	pass # Replace with function body.
 
 func setClient(clientData: ClientData):
+	client1.animation = 'idle' + str(clientData.clientNumber + 1)
 	client1.modulate.a = 0.0
 	client1.visible = true
 	var tween := create_tween()

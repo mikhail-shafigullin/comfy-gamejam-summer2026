@@ -120,7 +120,7 @@ unique_name_in_owner = true
 visible = false
 position = Vector2(157, 156)
 sprite_frames = SubResource("SpriteFrames_uu8es")
-animation = &"idle3"
+animation = &"idle1"
 
 [node name="ClientRestartTimer" type="Timer" parent="." unique_id=771131229]
 unique_name_in_owner = true
