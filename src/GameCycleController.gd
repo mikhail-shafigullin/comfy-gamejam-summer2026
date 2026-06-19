@@ -18,7 +18,7 @@ func _ready() -> void:
 func initClient():
 	var newClient = ClientData.new();
 	newClient.clientName = "Innokentii Petrov"
-	newClient.initialCocktailRecipe = Resources.recipePinaKolada;
+	newClient.initialCocktailRecipe = Resources.getRandomCocktailRecipe();
 	if(currentClient):
 		newClient.clientNumber = (currentClient.clientNumber + 1) % 3;
 	else: 

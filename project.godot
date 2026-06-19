@@ -74,7 +74,8 @@ layout/style_list=["res://dialogic/styles/MainVNStyle.tres"]
 layout/default_style="res://dialogic/styles/MainVNStyle.tres"
 variables={
 "cocktailResultScore": "",
-"coctailFullResult": ""
+"coctailFullResult": "",
+"currentCocktailName": ""
 }
 
 [display]

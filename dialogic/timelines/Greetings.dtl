@@ -1,5 +1,5 @@
 [signal arg="startTalk"]
 Hi
-Can you mix for me PinaColada?
+Can you mix for me {{currentCocktailName}}?
 [signal arg="stopTalk"]
 do Global.startClientInteraction()

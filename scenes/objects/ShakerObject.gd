@@ -59,6 +59,18 @@ func onIngredientDropped(ingredient: Node2D) -> void:
 
 func cocktailOrdered(cocktail: CocktailRecipeData):
 	print("Ordered cocktail ", cocktail.cocktailName, " : ", cocktail.ingredients)
+	clearCocktails();
+	match cocktail:
+		Resources.recipeDajkiri:
+			cocktailDaikiri.visible = true;
+		Resources.recipeMojito:
+			cocktailMohito.visible = true;
+		Resources.recipePinaKolada:
+			cocktailPinocolada.visible = true;
+		Resources.recipePineappleLimonade:
+			cocktailAnanasLimonad.visible = true;
+		Resources.recipeBountyBreeze:
+			cocktailBauntiBriz.visible = true;
 	setEnabled(true)
 
 func setEnabled(enabled: bool):
@@ -138,9 +150,16 @@ func clearIngredients():
 	ingredientRum.visible = false;
 	ingredientSprite.visible = false;
 
+func clearCocktails():
+	cocktailDaikiri.visible = false;
+	cocktailMohito.visible = false;
+	cocktailPinocolada.visible = false;
+	cocktailAnanasLimonad.visible = false;
+	cocktailBauntiBriz.visible = false;
+
 func clear():
 	clearIngredients()
-
+	clearCocktails()
 	animationPlayer.play("RESET")
 	setEnabled(false);
 	capSprite.visible = false;

@@ -34,6 +34,7 @@ func startTimerUpdateClient():
 	clientRestartTimer.start();
 
 func startClientDialogue():
+	Dialogic.VAR.currentCocktailName = currentClientData.initialCocktailRecipe.cocktailName;
 	Dialogic.start("Greetings");
 	pass;
 	
