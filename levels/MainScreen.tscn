@@ -21,9 +21,9 @@ script = ExtResource("1_iaptt")
 [node name="ColorRect" type="ColorRect" parent="." unique_id=587676664]
 layout_mode = 0
 offset_left = 184.0
-offset_top = 720.0
+offset_top = 718.0
 offset_right = 1112.0
-offset_bottom = 1024.0
+offset_bottom = 1022.0
 color = Color(0.54509807, 0.22745098, 0.28627452, 1)
 
 [node name="borders" type="Control" parent="." unique_id=1064619904]

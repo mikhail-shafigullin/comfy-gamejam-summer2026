@@ -83,13 +83,21 @@ func addIngredientIntent(ingredient: IngredientObject) -> void:
 	match ingredient.data.name:
 		Resources.ingredientPineappleJuice.name:
 			ingredientPineappleJuice.visible = true;
+			animationPlayer.play("pourLiquidIngredient");
 		Resources.ingredientMilk.name:
 			ingredientCocoJuice.visible = true;
+			animationPlayer.play("pourLiquidIngredient");
 		Resources.ingredientRum.name:
 			ingredientRum.visible = true;
+			animationPlayer.play("pourLiquidIngredient");
 		Resources.ingredientSprite.name:
 			ingredientSprite.visible = true;
-	animationPlayer.play("pourLiquidIngredient");
+			animationPlayer.play("pourLiquidIngredient");
+		Resources.ingredientMint.name:
+			animationPlayer.play("mintAnimation");
+		Resources.ingredientLime.name:
+			animationPlayer.play("limeAnimation");
+	
 	animationPlayer.animation_finished.connect(func(_anim): animationPlayer.play("pourLiquidIngredient2"), CONNECT_ONE_SHOT); 
 	minigame_requested.emit(ingredient)
 
