@@ -107,10 +107,10 @@ texture = ExtResource("7_7eiue")
 
 [node name="Control" type="Control" parent="." unique_id=934228206]
 anchors_preset = 0
-offset_left = 820.0
-offset_top = 360.0
-offset_right = 1128.0
-offset_bottom = 673.0
+offset_left = 216.0
+offset_top = 760.0
+offset_right = 1071.0
+offset_bottom = 984.0
 mouse_filter = 2
 
 [node name="MiniGameDialogues" parent="." unique_id=2010436925 instance=ExtResource("2_vrrex")]

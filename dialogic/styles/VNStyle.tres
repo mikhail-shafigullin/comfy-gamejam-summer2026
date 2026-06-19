@@ -1,0 +1,32 @@
+[gd_resource type="Resource" script_class="DialogicStyle" format=3 uid="uid://cu17dqt1vdfay"]
+
+[ext_resource type="Script" uid="uid://bwg6yncmh2cml" path="res://addons/dialogic/Resources/dialogic_style_layer.gd" id="1_al4an"]
+[ext_resource type="Script" uid="uid://dv08k6ljua6fm" path="res://addons/dialogic/Resources/dialogic_style.gd" id="2_0e2oq"]
+[ext_resource type="PackedScene" uid="uid://bquja8jyk8kbr" path="res://addons/dialogic/Modules/DefaultLayoutParts/Layer_VN_Textbox/vn_textbox_layer.tscn" id="2_0rrcj"]
+
+[sub_resource type="Resource" id="Resource_0rrcj"]
+script = ExtResource("1_al4an")
+
+[sub_resource type="Resource" id="Resource_0e2oq"]
+script = ExtResource("1_al4an")
+scene = ExtResource("2_0rrcj")
+overrides = {
+"box_color_custom": "Color(0, 0, 0, 0)",
+"box_margin_bottom": "30.0",
+"box_size": "Vector2(855, 232)",
+"name_label_box_modulate": "Color(0, 0, 0, 0)",
+"text_custom_color": "Color(0.43137255, 0.8392157, 0.6431373, 1)",
+"text_size": "30.0",
+"text_use_global_color": "false",
+"text_use_global_size": "false"
+}
+
+[resource]
+script = ExtResource("2_0e2oq")
+name = "VNStyle"
+layer_list = Array[String](["11"])
+layer_info = {
+"": SubResource("Resource_0rrcj"),
+"11": SubResource("Resource_0e2oq")
+}
+metadata/_latest_layer = "11"
