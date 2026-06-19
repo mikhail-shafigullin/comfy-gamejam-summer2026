@@ -50,7 +50,7 @@ render_target_update_mode = 4
 y_sort_enabled = true
 
 [node name="Huinushka" type="Sprite2D" parent="SubViewportContainer/SubViewport/Node2D2" unique_id=998554864]
-position = Vector2(573, 125)
+position = Vector2(149, 154)
 texture = ExtResource("3_1ejva")
 
 [node name="ComfyJamSummer2026001" type="Sprite2D" parent="SubViewportContainer/SubViewport/Node2D2" unique_id=1780928947]
