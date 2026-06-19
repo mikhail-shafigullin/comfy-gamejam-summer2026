@@ -45,10 +45,6 @@ func showDialogueResult(scoreUpdates: Array[ScoreUpdate]):
 		result = result + scoreUpdate.label + ": " + str(scoreUpdate.amount * scoreUpdate.multiply) + "; ";
 		resultScore += scoreUpdate.amount * scoreUpdate.multiply;
 
-	Dialogic.VAR.coctailFullResult = result;
-	Dialogic.VAR.cocktailResultScore = str(resultScore);
-	Dialogic.start("CocktailResults");
-
 func getAnim(prefix: String) -> String:
 	var animSuffix = str(currentClientData.clientNumber + 1);
 	return prefix + animSuffix

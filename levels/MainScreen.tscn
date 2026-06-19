@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://csrmqxuou7sml" path="res://levels/ClientScreen.tscn" id="4_1obit"]
 [ext_resource type="Script" uid="uid://8ojujrxluy8o" path="res://src/GameCycleController.gd" id="4_584rv"]
 [ext_resource type="PackedScene" uid="uid://dlqq0rwjeh1yb" path="res://levels/RecipeScreen.tscn" id="5_1obit"]
+[ext_resource type="PackedScene" uid="uid://cfcxsxf7owyv8" path="res://levels/ResultScreen.tscn" id="7_6bf4t"]
 [ext_resource type="Texture2D" uid="uid://cv5w00kcx72i2" path="res://assets/sprites/props/Podlozhka.png" id="7_7eiue"]
 
 [node name="MainScreen" type="Control" unique_id=2002646227]
@@ -107,13 +108,21 @@ position = Vector2(643.55536, 512.00006)
 scale = Vector2(0.948148, 0.94814795)
 texture = ExtResource("7_7eiue")
 
-[node name="Control" type="Control" parent="." unique_id=934228206]
+[node name="Control2" type="Control" parent="." unique_id=684640057]
 anchors_preset = 0
 offset_left = 216.0
 offset_top = 760.0
 offset_right = 1071.0
 offset_bottom = 984.0
 mouse_filter = 2
+
+[node name="ResultScreen" parent="Control2" unique_id=1103621635 instance=ExtResource("7_6bf4t")]
+visible = false
+layout_mode = 1
+offset_left = 0.0
+offset_top = 0.0
+offset_right = 855.0
+offset_bottom = 224.0
 
 [node name="MiniGameDialogues" parent="." unique_id=2010436925 instance=ExtResource("2_vrrex")]
 layout_mode = 1

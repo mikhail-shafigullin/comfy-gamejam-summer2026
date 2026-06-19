@@ -5,7 +5,7 @@ signal gameStarted;
 # clients events
 signal clientInit(client: ClientData);
 signal clientStart();
-signal clientAnnounceResults(results: ScoreUpdate);
+signal clientAnnounceResults(results: Array[ScoreUpdate]);
 signal clientFinish();
 
 # cocktails events

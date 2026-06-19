@@ -1,0 +1,53 @@
+[gd_scene format=3 uid="uid://d0gdxjn5hahia"]
+
+[ext_resource type="Script" uid="uid://jtqtyreko2s6" path="res://levels/ScoreUpdateElement.gd" id="1_jtgnc"]
+[ext_resource type="FontFile" uid="uid://7mkm70pbpfc2" path="res://assets/fonts/BitcountGridDouble-VariableFont_CRSV,ELSH,ELXP,slnt,wght.ttf" id="1_yw25q"]
+
+[node name="ScoreUpdateElement" type="Control" unique_id=984485059]
+custom_minimum_size = Vector2(0, 56)
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_jtgnc")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="." unique_id=867704894]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Control2" type="Control" parent="HBoxContainer" unique_id=2021712019]
+custom_minimum_size = Vector2(20, 56)
+layout_mode = 2
+
+[node name="SuccessFlag" type="Label" parent="HBoxContainer/Control2" unique_id=1082245740]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("1_yw25q")
+theme_override_font_sizes/font_size = 30
+text = "+"
+vertical_alignment = 1
+
+[node name="Control" type="Control" parent="HBoxContainer" unique_id=2020475881]
+custom_minimum_size = Vector2(0, 56)
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Description" type="Label" parent="HBoxContainer/Control" unique_id=1347408730]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("1_yw25q")
+theme_override_font_sizes/font_size = 24
+text = "Add. Ingredient has been Added"
+vertical_alignment = 1

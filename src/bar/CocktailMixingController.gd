@@ -40,16 +40,37 @@ func finishCocktail():
 	elif(currentIceCubes.size() < requestedIceCubes.size()):
 		resultScoreUpdates.push_back(Resources.scoreUpdateIceCubesNotEnough)
 	
-	for miniGameResult in currentMiniGames:
+	var recipeIngredients: Array[IngredientData] = []
+	recipeIngredients.append_array(orderedCocktail.ingredients)
+
+	for i in range(currentIngredients.size()):
+		var ingredient := currentIngredients[i]
+		if not recipeIngredients.has(ingredient):
+			continue
+		recipeIngredients.erase(ingredient)
+		var miniGameResult := currentMiniGames[i]
 		if(miniGameResult == IngredientMiniGameStatus.PERFECT):
 			resultScoreUpdates.push_back(Resources.scoreUpdateMiniGamePerfect)
 		elif(miniGameResult == IngredientMiniGameStatus.GOOD):
 			resultScoreUpdates.push_back(Resources.scoreUpdateMiniGameGood)
-	
-#	need to fix here check of additional ingredients
 
 func getMixingResult() -> Array[ScoreUpdate]:
 	return resultScoreUpdates;
+
+func getMaxPossibleScore() -> float:
+	var allRequestedIngredients: Array[IngredientData] = []
+	allRequestedIngredients.append_array(orderedCocktail.ingredients)
+	allRequestedIngredients.append_array(additionalRequestedIngredients)
+
+	var normalIngredientsCount := allRequestedIngredients.filter(
+		func(elem: IngredientData): return elem != Resources.ingredientIce
+	).size()
+
+	var total := 0.0
+	total += Resources.scoreUpdateCorrectCocktail.amount * Resources.scoreUpdateCorrectCocktail.multiply
+	total += Resources.scoreUpdateIceCubesCorrect.amount * Resources.scoreUpdateIceCubesCorrect.multiply
+	total += normalIngredientsCount * Resources.scoreUpdateMiniGamePerfect.amount * Resources.scoreUpdateMiniGamePerfect.multiply
+	return total;
 
 func areAllNormalIngredientsCorrect(requestedIngredients: Array, currentMix: Array) -> bool:
 	if(requestedIngredients.size() != currentMix.size()):
