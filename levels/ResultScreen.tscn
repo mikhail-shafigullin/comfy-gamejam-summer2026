@@ -30,7 +30,9 @@ offset_bottom = 984.0
 script = ExtResource("1_3mnkc")
 scoreUpdateElementScene = ExtResource("1_o4gd6")
 
-[node name="HBoxContainer" type="HBoxContainer" parent="." unique_id=1325012863]
+[node name="ResultScreenDetails" type="HBoxContainer" parent="." unique_id=1325012863]
+unique_name_in_owner = true
+visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -38,12 +40,12 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Control" type="Control" parent="HBoxContainer" unique_id=1708974774]
+[node name="Control" type="Control" parent="ResultScreenDetails" unique_id=1708974774]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 1.55
 
-[node name="ScrollContainer" type="ScrollContainer" parent="HBoxContainer/Control" unique_id=1882788279]
+[node name="ScrollContainer" type="ScrollContainer" parent="ResultScreenDetails/Control" unique_id=1882788279]
 unique_name_in_owner = true
 layout_mode = 1
 anchors_preset = 15
@@ -54,20 +56,20 @@ grow_vertical = 2
 horizontal_scroll_mode = 3
 vertical_scroll_mode = 3
 
-[node name="ScoreUpdates" type="VBoxContainer" parent="HBoxContainer/Control/ScrollContainer" unique_id=846263653]
+[node name="ScoreUpdates" type="VBoxContainer" parent="ResultScreenDetails/Control/ScrollContainer" unique_id=846263653]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="VSeparator" type="VSeparator" parent="HBoxContainer" unique_id=1760546232]
+[node name="VSeparator" type="VSeparator" parent="ResultScreenDetails" unique_id=1760546232]
 layout_mode = 2
 theme_override_constants/separation = 20
 
-[node name="Control2" type="Control" parent="HBoxContainer" unique_id=1419134153]
+[node name="Control2" type="Control" parent="ResultScreenDetails" unique_id=1419134153]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer/Control2" unique_id=1567439295]
+[node name="VBoxContainer" type="VBoxContainer" parent="ResultScreenDetails/Control2" unique_id=1567439295]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -75,23 +77,23 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Control2" type="Control" parent="HBoxContainer/Control2/VBoxContainer" unique_id=83061579]
+[node name="Control2" type="Control" parent="ResultScreenDetails/Control2/VBoxContainer" unique_id=83061579]
 custom_minimum_size = Vector2(0, 56)
 layout_mode = 2
 
-[node name="HBoxContainer" type="HBoxContainer" parent="HBoxContainer/Control2/VBoxContainer/Control2" unique_id=1565818839]
+[node name="HBoxContainer" type="HBoxContainer" parent="ResultScreenDetails/Control2/VBoxContainer/Control2" unique_id=1565818839]
 layout_mode = 0
 offset_right = 40.0
 offset_bottom = 40.0
 
-[node name="Label" type="Label" parent="HBoxContainer/Control2/VBoxContainer/Control2/HBoxContainer" unique_id=1760407505]
+[node name="Label" type="Label" parent="ResultScreenDetails/Control2/VBoxContainer/Control2/HBoxContainer" unique_id=1760407505]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("3_uaj2y")
 theme_override_font_sizes/font_size = 30
 text = "Tip: "
 vertical_alignment = 1
 
-[node name="FullAmount" type="Label" parent="HBoxContainer/Control2/VBoxContainer/Control2/HBoxContainer" unique_id=1722636630]
+[node name="FullAmount" type="Label" parent="ResultScreenDetails/Control2/VBoxContainer/Control2/HBoxContainer" unique_id=1722636630]
 unique_name_in_owner = true
 layout_mode = 2
 theme_override_fonts/font = ExtResource("3_uaj2y")
@@ -99,18 +101,18 @@ theme_override_font_sizes/font_size = 30
 text = "30"
 vertical_alignment = 1
 
-[node name="Label3" type="Label" parent="HBoxContainer/Control2/VBoxContainer/Control2/HBoxContainer" unique_id=566545896]
+[node name="Label3" type="Label" parent="ResultScreenDetails/Control2/VBoxContainer/Control2/HBoxContainer" unique_id=566545896]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("3_uaj2y")
 theme_override_font_sizes/font_size = 30
 text = "$"
 vertical_alignment = 1
 
-[node name="Control" type="Control" parent="HBoxContainer/Control2/VBoxContainer" unique_id=501030972]
+[node name="Control" type="Control" parent="ResultScreenDetails/Control2/VBoxContainer" unique_id=501030972]
 custom_minimum_size = Vector2(0, 168)
 layout_mode = 2
 
-[node name="Label" type="Label" parent="HBoxContainer/Control2/VBoxContainer/Control" unique_id=1791530270]
+[node name="Label" type="Label" parent="ResultScreenDetails/Control2/VBoxContainer/Control" unique_id=1791530270]
 layout_mode = 0
 offset_left = 86.0
 offset_top = 14.0
@@ -121,7 +123,7 @@ theme_override_font_sizes/font_size = 30
 text = "score:"
 vertical_alignment = 1
 
-[node name="FinalLettersScore" type="Label" parent="HBoxContainer/Control2/VBoxContainer/Control" unique_id=1855677858]
+[node name="FinalLettersScore" type="Label" parent="ResultScreenDetails/Control2/VBoxContainer/Control" unique_id=1855677858]
 unique_name_in_owner = true
 layout_mode = 0
 offset_left = 118.0
@@ -133,14 +135,14 @@ theme_override_font_sizes/font_size = 70
 text = "C"
 vertical_alignment = 1
 
-[node name="ProgressBars" type="Control" parent="HBoxContainer/Control2/VBoxContainer/Control" unique_id=1829695770]
+[node name="ProgressBars" type="Control" parent="ResultScreenDetails/Control2/VBoxContainer/Control" unique_id=1829695770]
 unique_name_in_owner = true
 anchors_preset = 0
 offset_left = 14.0
 offset_right = 70.0
 offset_bottom = 166.0
 
-[node name="ProgressBar1" type="ProgressBar" parent="HBoxContainer/Control2/VBoxContainer/Control/ProgressBars" unique_id=1785660830]
+[node name="ProgressBar1" type="ProgressBar" parent="ResultScreenDetails/Control2/VBoxContainer/Control/ProgressBars" unique_id=1785660830]
 custom_minimum_size = Vector2(100, 0)
 layout_mode = 0
 offset_left = 8.0
@@ -152,7 +154,7 @@ theme_override_styles/background = ExtResource("4_g7nhs")
 theme_override_styles/fill = SubResource("StyleBoxFlat_g7nhs")
 show_percentage = false
 
-[node name="ProgressBar2" type="ProgressBar" parent="HBoxContainer/Control2/VBoxContainer/Control/ProgressBars" unique_id=1623931559]
+[node name="ProgressBar2" type="ProgressBar" parent="ResultScreenDetails/Control2/VBoxContainer/Control/ProgressBars" unique_id=1623931559]
 custom_minimum_size = Vector2(100, 0)
 layout_mode = 0
 offset_left = 8.0
@@ -164,7 +166,7 @@ theme_override_styles/background = ExtResource("4_g7nhs")
 theme_override_styles/fill = SubResource("StyleBoxFlat_25ei2")
 show_percentage = false
 
-[node name="ProgressBar3" type="ProgressBar" parent="HBoxContainer/Control2/VBoxContainer/Control/ProgressBars" unique_id=2109157925]
+[node name="ProgressBar3" type="ProgressBar" parent="ResultScreenDetails/Control2/VBoxContainer/Control/ProgressBars" unique_id=2109157925]
 custom_minimum_size = Vector2(100, 0)
 layout_mode = 0
 offset_left = 8.0
@@ -176,7 +178,7 @@ theme_override_styles/background = ExtResource("4_g7nhs")
 theme_override_styles/fill = SubResource("StyleBoxFlat_75nut")
 show_percentage = false
 
-[node name="ProgressBar4" type="ProgressBar" parent="HBoxContainer/Control2/VBoxContainer/Control/ProgressBars" unique_id=697282465]
+[node name="ProgressBar4" type="ProgressBar" parent="ResultScreenDetails/Control2/VBoxContainer/Control/ProgressBars" unique_id=697282465]
 custom_minimum_size = Vector2(100, 0)
 layout_mode = 0
 offset_left = 8.0
@@ -188,7 +190,7 @@ theme_override_styles/background = ExtResource("4_g7nhs")
 theme_override_styles/fill = SubResource("StyleBoxFlat_bq26u")
 show_percentage = false
 
-[node name="ProgressBar5" type="ProgressBar" parent="HBoxContainer/Control2/VBoxContainer/Control/ProgressBars" unique_id=1661039000]
+[node name="ProgressBar5" type="ProgressBar" parent="ResultScreenDetails/Control2/VBoxContainer/Control/ProgressBars" unique_id=1661039000]
 custom_minimum_size = Vector2(100, 0)
 layout_mode = 0
 offset_left = 8.0
@@ -200,7 +202,7 @@ theme_override_styles/background = ExtResource("4_g7nhs")
 theme_override_styles/fill = SubResource("StyleBoxFlat_2mejm")
 show_percentage = false
 
-[node name="placeholder" type="ProgressBar" parent="HBoxContainer/Control2/VBoxContainer/Control/ProgressBars" unique_id=1471559466]
+[node name="placeholder" type="ProgressBar" parent="ResultScreenDetails/Control2/VBoxContainer/Control/ProgressBars" unique_id=1471559466]
 custom_minimum_size = Vector2(100, 0)
 layout_mode = 0
 offset_left = 8.0
@@ -209,3 +211,18 @@ offset_right = 159.67801
 offset_bottom = 198.95306
 rotation = -1.5707964
 show_percentage = false
+
+[node name="CurrentCocktailLabel" type="Label" parent="." unique_id=744366719]
+unique_name_in_owner = true
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.43137255, 0.8392157, 0.6431373, 1)
+theme_override_font_sizes/font_size = 30
+text = "Ordered Cocktail: Dajkiri"
+horizontal_alignment = 1
+vertical_alignment = 1

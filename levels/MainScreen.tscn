@@ -117,7 +117,6 @@ offset_bottom = 984.0
 mouse_filter = 2
 
 [node name="ResultScreen" parent="Control2" unique_id=1103621635 instance=ExtResource("7_6bf4t")]
-visible = false
 layout_mode = 1
 offset_left = 0.0
 offset_top = 0.0

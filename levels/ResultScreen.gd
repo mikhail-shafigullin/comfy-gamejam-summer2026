@@ -8,6 +8,8 @@ extends Control
 @onready var fullAmount: Label = %FullAmount
 @onready var progressBars: Control = %ProgressBars
 @onready var finalLettersScore: Label = %FinalLettersScore
+@onready var currentCocktailLabel: Label = %CurrentCocktailLabel;
+@onready var resultScreenDetails: Control = %ResultScreenDetails;
 
 var _resultsShown: bool = false
 var _barTween: Tween = null
@@ -23,9 +25,18 @@ const RANK_PULSE_SPEEDS := [0.0, 0.6, 0.5, 0.45, 0.4, 0.35]
 func _ready() -> void:
 	EventBus.clientAnnounceResults.connect(showResults)
 	EventBus.clientFinish.connect(_onClientFinish)
+	EventBus.cocktailOrdered.connect(_cocktailShow)
+	Dialogic.timeline_started.connect(dialogueStarted);
+
+func _cocktailShow(cocktailData: CocktailRecipeData):
+	currentCocktailLabel.show();
+	currentCocktailLabel.text = "Ordered cocktail: " + cocktailData.cocktailName;
+
+func dialogueStarted():
+	currentCocktailLabel.hide();
 
 func _onClientFinish() -> void:
-	visible = false
+	resultScreenDetails.visible = false
 	_resultsShown = false
 	_currentFilledBars = 0
 	if _barTween and _barTween.is_valid():
@@ -126,7 +137,7 @@ func showResults(results: Array[ScoreUpdate]) -> void:
 		child.queue_free()
 
 	fullAmount.text = ""
-	visible = true
+	resultScreenDetails.visible = true
 	_resultsShown = false
 	_currentFilledBars = 0
 
