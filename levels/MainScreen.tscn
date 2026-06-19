@@ -82,9 +82,9 @@ color = Color(0.24313726, 0.09019608, 0.18039216, 1)
 [node name="CocktailMixingScreen" parent="." unique_id=562281540 instance=ExtResource("3_584rv")]
 layout_mode = 1
 offset_left = 157.0
-offset_top = 25.0
+offset_top = 24.0
 offset_right = -435.0
-offset_bottom = -203.0
+offset_bottom = -204.0
 
 [node name="ClientScreen" parent="." unique_id=173617116 instance=ExtResource("4_1obit")]
 layout_mode = 1
@@ -95,10 +95,10 @@ offset_bottom = -685.0
 
 [node name="RecipeScreen" parent="." unique_id=2131600368 instance=ExtResource("5_1obit")]
 layout_mode = 1
-offset_left = 822.0
-offset_top = 365.0
-offset_right = -150.0
-offset_bottom = -346.0
+offset_left = 821.0
+offset_top = 363.0
+offset_right = -151.0
+offset_bottom = -348.0
 
 [node name="GameCycle" type="Node" parent="." unique_id=1095228021]
 script = ExtResource("4_584rv")

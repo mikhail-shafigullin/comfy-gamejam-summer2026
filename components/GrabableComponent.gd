@@ -2,6 +2,8 @@ class_name GrabableComponent
 extends Node
 
 signal dropped(node: Node2D)
+signal hovered()
+signal unhovered()
 
 @export var boundsSprite: Sprite2D = null
 @export var grabableRotate: bool = false
@@ -9,8 +11,13 @@ signal dropped(node: Node2D)
 @export var rotateTiltFactor: float = 0.02
 @export var rotateRestoreSpeed: float = 12
 @export var isGrabDisabled: bool = false
+@export var hoverScale: float = 1.08
+@export var hoverScaleDuration: float = 0.15
 
 var _isDragging: bool = false
+var _isHovered: bool = false
+var _originalScale: Vector2 = Vector2.ONE
+var _scaleTween: Tween = null
 var _dragOffset: Vector2 = Vector2.ZERO
 var _clickLocalOffset: Vector2 = Vector2.ZERO
 var _originalRotation: float = 0.0
@@ -23,6 +30,7 @@ func _ready() -> void:
 	var parent := get_parent() as Node2D
 	if parent != null:
 		_originalRotation = parent.rotation
+		_originalScale = parent.scale
 
 func _process(delta: float) -> void:
 	if not grabableRotate:
@@ -57,10 +65,12 @@ func _input(event: InputEvent) -> void:
 				_isDragging = false
 		return
 
-	if event is InputEventMouseMotion and _isDragging:
+	if event is InputEventMouseMotion:
 		var parent := get_parent() as Node2D
 		if parent != null:
-			_updateDragPosition(parent)
+			if _isDragging:
+				_updateDragPosition(parent)
+			_updateHoverState(parent)
 
 func _tryStartDrag() -> void:
 	if isGrabDisabled:
@@ -142,6 +152,53 @@ func startDragAt(mousePos: Vector2) -> void:
 	_dragOffset = parent.global_position - mousePos
 	_clickLocalOffset = parent.to_local(mousePos)
 	_lastMousePos = mousePos
+
+func _updateHoverState(parent: Node2D) -> void:
+	if isGrabDisabled:
+		if _isHovered:
+			_isHovered = false
+			onUnhover()
+		return
+
+	var body := _findStaticBody(parent)
+	if body == null:
+		return
+
+	var mousePos := parent.get_global_mouse_position()
+	var spaceState := parent.get_world_2d().direct_space_state
+	var query := PhysicsPointQueryParameters2D.new()
+	query.position = mousePos
+	query.collide_with_bodies = true
+
+	var nowHovered := false
+	for result in spaceState.intersect_point(query):
+		if result["collider"] == body:
+			nowHovered = true
+			break
+
+	if nowHovered and not _isHovered:
+		_isHovered = true
+		onHover()
+	elif not nowHovered and _isHovered:
+		_isHovered = false
+		onUnhover()
+
+func onHover() -> void:
+	hovered.emit()
+	_tweenScale(_originalScale * hoverScale)
+
+func onUnhover() -> void:
+	unhovered.emit()
+	_tweenScale(_originalScale)
+
+func _tweenScale(targetScale: Vector2) -> void:
+	var parent := get_parent() as Node2D
+	if parent == null:
+		return
+	if _scaleTween != null:
+		_scaleTween.kill()
+	_scaleTween = create_tween().set_trans(Tween.TRANS_BACK).set_ease(Tween.EASE_OUT)
+	_scaleTween.tween_property(parent, "scale", targetScale, hoverScaleDuration)
 
 func disableGrab(disable: bool) -> void:
 	isGrabDisabled = disable
