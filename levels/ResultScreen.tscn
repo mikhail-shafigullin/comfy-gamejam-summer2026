@@ -4,6 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://d0gdxjn5hahia" path="res://levels/ScoreUpdateElement.tscn" id="1_o4gd6"]
 [ext_resource type="FontFile" uid="uid://7mkm70pbpfc2" path="res://assets/fonts/BitcountGridDouble-VariableFont_CRSV,ELSH,ELXP,slnt,wght.ttf" id="3_uaj2y"]
 [ext_resource type="StyleBox" uid="uid://cowygqcexkcgk" path="res://assets/styles/resultProgressBar_back.tres" id="4_g7nhs"]
+[ext_resource type="FontFile" uid="uid://cj7exwavlfuex" path="res://assets/fonts/Sniglet-Regular.ttf" id="5_25ei2"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_g7nhs"]
 bg_color = Color(0.21176471, 0.4862745, 0.3137255, 1)
@@ -222,6 +223,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_colors/font_color = Color(0.43137255, 0.8392157, 0.6431373, 1)
+theme_override_fonts/font = ExtResource("5_25ei2")
 theme_override_font_sizes/font_size = 30
 text = "Ordered Cocktail: Dajkiri"
 horizontal_alignment = 1

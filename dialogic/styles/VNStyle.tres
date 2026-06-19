@@ -15,6 +15,8 @@ overrides = {
 "box_margin_bottom": "30.0",
 "box_size": "Vector2(855, 232)",
 "name_label_box_modulate": "Color(0, 0, 0, 0)",
+"normal_font": "\"res://assets/fonts/Sniglet-Regular.ttf\"",
+"text_alignment": "1",
 "text_custom_color": "Color(0.43137255, 0.8392157, 0.6431373, 1)",
 "text_size": "30.0",
 "text_use_global_color": "false",
