@@ -1,6 +1,49 @@
 [gd_scene format=3 uid="uid://dd1ngr3d13nt"]
 
 [ext_resource type="Script" uid="uid://ccgujxkejpght" path="res://scenes/minigames/AddIngredientMinigame.gd" id="1_minigame"]
+[ext_resource type="Texture2D" uid="uid://c7yoyj05k2vm0" path="res://assets/sprites/icons/mouse_left_outline.png" id="2_swh70"]
+[ext_resource type="StyleBox" uid="uid://cegd2b7qhupgw" path="res://assets/styles/panelStyle.tres" id="2_uu1qv"]
+[ext_resource type="Texture2D" uid="uid://1b11lt6obbs" path="res://assets/sprites/icons/mouse_outline.png" id="3_eshrf"]
+[ext_resource type="StyleBox" uid="uid://db3ci4m64bgla" path="res://assets/styles/progressBarStyle.tres" id="5_oafuu"]
+[ext_resource type="StyleBox" uid="uid://c07e2e13qyfw2" path="res://assets/styles/progressBarStyle_back.tres" id="5_ykk8h"]
+
+[sub_resource type="Animation" id="Animation_uu1qv"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Panel/VBoxContainer/Icon/MouseLeftOutline:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_eshrf"]
+resource_name = "iconAnim"
+length = 0.5
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Panel/VBoxContainer/Icon/MouseLeftOutline:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_uu1qv"]
+_data = {
+&"RESET": SubResource("Animation_uu1qv"),
+&"iconAnim": SubResource("Animation_eshrf")
+}
 
 [node name="AddIngredientMinigame" type="Control" unique_id=752983230]
 layout_mode = 3
@@ -12,6 +55,7 @@ grow_vertical = 2
 script = ExtResource("1_minigame")
 
 [node name="Background" type="ColorRect" parent="." unique_id=1158464844]
+visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -21,6 +65,7 @@ grow_vertical = 2
 color = Color(0, 0, 0, 0.5)
 
 [node name="Panel" type="PanelContainer" parent="." unique_id=632675139]
+unique_name_in_owner = true
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -28,17 +73,37 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -200.0
-offset_top = -80.0
+offset_top = -128.0
 offset_right = 200.0
-offset_bottom = 80.0
+offset_bottom = 32.0
 grow_horizontal = 2
 grow_vertical = 2
+pivot_offset_ratio = Vector2(0.5, 0.5)
+theme_override_styles/panel = ExtResource("2_uu1qv")
+
+[node name="Control" type="Control" parent="Panel" unique_id=1220578908]
+layout_mode = 2
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Panel" unique_id=835577906]
 layout_mode = 2
 theme_override_constants/separation = 10
 
+[node name="Icon" type="Node2D" parent="Panel/VBoxContainer" unique_id=1713123357]
+modulate = Color(0.3529412, 0.7254902, 0.63529414, 1)
+position = Vector2(334, 26)
+
+[node name="MouseLeftOutline" type="Sprite2D" parent="Panel/VBoxContainer/Icon" unique_id=973144622]
+texture = ExtResource("2_swh70")
+
+[node name="MouseOutline" type="Sprite2D" parent="Panel/VBoxContainer/Icon" unique_id=1904974187]
+texture = ExtResource("3_eshrf")
+
+[node name="Control" type="Control" parent="Panel/VBoxContainer" unique_id=779986105]
+custom_minimum_size = Vector2(10, 50)
+layout_mode = 2
+
 [node name="Label" type="Label" parent="Panel/VBoxContainer" unique_id=1022465120]
+visible = false
 layout_mode = 2
 theme_override_font_sizes/font_size = 18
 text = "Press left MOUSE button"
@@ -49,12 +114,15 @@ custom_minimum_size = Vector2(0, 28)
 layout_mode = 2
 
 [node name="ProgressBar" type="ProgressBar" parent="Panel/VBoxContainer/BarArea" unique_id=1525113143]
+unique_name_in_owner = true
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_styles/background = ExtResource("5_ykk8h")
+theme_override_styles/fill = ExtResource("5_oafuu")
 show_percentage = false
 
 [node name="GoodZone" type="ColorRect" parent="Panel/VBoxContainer/BarArea" unique_id=204830291]
@@ -66,7 +134,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
-color = Color(1, 0.85, 0, 0.5)
+color = Color(0.3529412, 0.7254902, 0.63529414, 0.5686275)
 
 [node name="PerfectZone" type="ColorRect" parent="Panel/VBoxContainer/BarArea" unique_id=304720188]
 layout_mode = 1
@@ -77,9 +145,15 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
-color = Color(0, 0.85, 0, 0.5)
+color = Color(0.8235294, 0.9254902, 0.6, 0.49411765)
 
 [node name="ResultLabel" type="Label" parent="Panel/VBoxContainer" unique_id=404610085]
+unique_name_in_owner = true
 layout_mode = 2
+theme_override_colors/font_color = Color(0.3529412, 0.7254902, 0.63529414, 1)
 theme_override_font_sizes/font_size = 22
 horizontal_alignment = 1
+
+[node name="IconAnimationPlayer" type="AnimationPlayer" parent="." unique_id=1611151054]
+unique_name_in_owner = true
+libraries/ = SubResource("AnimationLibrary_uu1qv")

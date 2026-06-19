@@ -16,6 +16,7 @@ var isEnabled: bool
 @onready var shakeProgressBar: ProgressBar = %ShakeProgressBar
 @onready var shakeFinishTimer: Timer = %ShakeFinishTimer
 @onready var animationPlayer: AnimationPlayer = %AnimationPlayer;
+@onready var mouseMoveIcon: Sprite2D = %MouseMove;
 
 @onready var ingredientPineappleJuice: Sprite2D = %PineappleJuice;
 @onready var ingredientCocoJuice: Sprite2D = %CocoJuice;
@@ -33,6 +34,7 @@ var isEnabled: bool
 var _shakeMiniGameActive: bool = false
 var _lastY: float = 0.0
 var _lastYVelocity: float = 0.0
+var _mouseIconShakeTween: Tween
 
 func _ready() -> void:
 	clear();
@@ -77,6 +79,19 @@ func setEnabled(enabled: bool):
 	visible = enabled;
 	isEnabled = enabled
 
+func _startMouseIconShake() -> void:
+	if _mouseIconShakeTween:
+		_mouseIconShakeTween.kill()
+	_mouseIconShakeTween = create_tween().set_loops()
+	_mouseIconShakeTween.tween_property(mouseMoveIcon, "rotation", deg_to_rad(15.0), 0.15).set_ease(Tween.EASE_IN_OUT).set_trans(Tween.TRANS_SINE)
+	_mouseIconShakeTween.tween_property(mouseMoveIcon, "rotation", deg_to_rad(-15.0), 0.15).set_ease(Tween.EASE_IN_OUT).set_trans(Tween.TRANS_SINE)
+
+func _stopMouseIconShake() -> void:
+	if _mouseIconShakeTween:
+		_mouseIconShakeTween.kill()
+		_mouseIconShakeTween = null
+	mouseMoveIcon.rotation = 0.0
+
 func addIngredientIntent(ingredient: IngredientObject) -> void:
 	clearIngredients()
 	ingredient.hide();
@@ -104,8 +119,7 @@ func addIngredientIntent(ingredient: IngredientObject) -> void:
 		Resources.ingredientLime.name:
 			animationPlayer.play("limeAnimation");
 			
-	
-	animationPlayer.animation_finished.connect(func(_anim): animationPlayer.play("pourLiquidIngredient2"), CONNECT_ONE_SHOT); 
+	animationPlayer.animation_finished.connect(func(_anim): animationPlayer.play("pourLiquidIngredient2"), CONNECT_ONE_SHOT);
 	minigame_requested.emit(ingredient)
 
 func addIngredientFinish(ingredient: IngredientObject, result: CocktailMixingController.IngredientMiniGameStatus) -> void:
@@ -144,6 +158,7 @@ func _process(delta: float) -> void:
 		_completeShakeMiniGame()
 
 func startShakeMiniGame() -> void:
+	_startMouseIconShake()
 	_shakeMiniGameActive = true
 	_lastY = global_position.y
 	_lastYVelocity = 0.0
@@ -151,6 +166,7 @@ func startShakeMiniGame() -> void:
 	shakeMiniGameControl.visible = true
 
 func _completeShakeMiniGame() -> void:
+	_stopMouseIconShake()
 	_shakeMiniGameActive = false
 	shakeMiniGameControl.visible = false
 	shakeFinishTimer.start();
