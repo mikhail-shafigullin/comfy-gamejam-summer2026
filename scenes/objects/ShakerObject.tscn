@@ -11,9 +11,12 @@
 [ext_resource type="Texture2D" uid="uid://bx1pup57dixpu" path="res://assets/sprites/props/mohito.png" id="7_mxy4q"]
 [ext_resource type="Texture2D" uid="uid://585tolo3ui0s" path="res://assets/sprites/props/ananas_limonad.png" id="9_xfish"]
 [ext_resource type="Texture2D" uid="uid://bhv06uk4x7wu7" path="res://assets/sprites/props/baunti_briz.png" id="10_vuvi1"]
+[ext_resource type="Texture2D" uid="uid://b13xe3r0e87ry" path="res://assets/sprites/props/stakan1_back.png" id="11_a2rmx"]
 [ext_resource type="Texture2D" uid="uid://cau16kvct0a4x" path="res://assets/sprites/props/coco_juice.png" id="11_jrr7o"]
 [ext_resource type="Texture2D" uid="uid://jpktdmbyre22" path="res://assets/sprites/props/pineapple_juice.png" id="11_t17to"]
 [ext_resource type="Texture2D" uid="uid://b8qlv38kms7ph" path="res://assets/sprites/props/rum_back.png" id="12_blwxs"]
+[ext_resource type="Texture2D" uid="uid://dm1kuoa8uj3ai" path="res://assets/sprites/props/zhidkost_fail.png" id="12_puq5i"]
+[ext_resource type="Texture2D" uid="uid://n5q3lcjk73m4" path="res://assets/sprites/props/stakan1_front.png" id="13_qvhod"]
 [ext_resource type="Texture2D" uid="uid://xvatithl72vp" path="res://assets/sprites/props/rum_zhidkost.png" id="13_t17to"]
 [ext_resource type="Texture2D" uid="uid://xpdr6xv0hkpt" path="res://assets/sprites/props/rum_front.png" id="14_oqs6c"]
 [ext_resource type="Texture2D" uid="uid://byf5yq5wcxjj7" path="res://assets/sprites/props/sprite.png" id="15_blwxs"]
@@ -896,6 +899,7 @@ texture = ExtResource("7_mxy4q")
 
 [node name="Pinocolada" type="Sprite2D" parent="Cocktails" unique_id=1238201144]
 unique_name_in_owner = true
+visible = false
 position = Vector2(64, 84)
 texture = ExtResource("7_7doqx")
 
@@ -910,6 +914,19 @@ unique_name_in_owner = true
 visible = false
 position = Vector2(64, 84)
 texture = ExtResource("10_vuvi1")
+
+[node name="IncorrectCocktail" type="Sprite2D" parent="Cocktails" unique_id=1356667396]
+unique_name_in_owner = true
+position = Vector2(73, 96)
+texture = ExtResource("11_a2rmx")
+
+[node name="ZhidkostFail" type="Sprite2D" parent="Cocktails/IncorrectCocktail" unique_id=1050483204]
+modulate = Color(0.11415618, 0.29019257, 0.17971474, 1)
+position = Vector2(-1, 4)
+texture = ExtResource("12_puq5i")
+
+[node name="Stakan1Front" type="Sprite2D" parent="Cocktails/IncorrectCocktail" unique_id=873294540]
+texture = ExtResource("13_qvhod")
 
 [node name="IngredientLiquid" type="Node2D" parent="." unique_id=423813953]
 visible = false

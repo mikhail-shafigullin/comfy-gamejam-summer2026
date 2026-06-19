@@ -100,3 +100,14 @@ static func getStatusName(status: IngredientMiniGameStatus) -> String:
 	else:
 		return "OK";
 	
+func getCookedCocktail() -> CocktailRecipeData:
+	var currentNonIce: Array = currentIngredients.filter(
+		func(elem: IngredientData): return elem != Resources.ingredientIce
+	)
+	for recipe in Resources.cocktailRecipes:
+		var recipeNonIce: Array = recipe.ingredients.filter(
+			func(elem: IngredientData): return elem != Resources.ingredientIce
+		)
+		if areAllNormalIngredientsCorrect(recipeNonIce, currentNonIce.duplicate()):
+			return recipe
+	return null;

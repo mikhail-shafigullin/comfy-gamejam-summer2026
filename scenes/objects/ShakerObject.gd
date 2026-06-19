@@ -28,6 +28,7 @@ var isEnabled: bool
 @onready var cocktailPinocolada: Sprite2D = %Pinocolada;
 @onready var cocktailAnanasLimonad: Sprite2D = %AnanasLimonad;
 @onready var cocktailBauntiBriz: Sprite2D = %BauntiBriz;
+@onready var cocktailIncorrect: Sprite2D = %IncorrectCocktail;
 
 @export var shakerRestartPositionMarker: Marker2D;
 
@@ -61,18 +62,6 @@ func onIngredientDropped(ingredient: Node2D) -> void:
 
 func cocktailOrdered(cocktail: CocktailRecipeData):
 	print("Ordered cocktail ", cocktail.cocktailName, " : ", cocktail.ingredients)
-	clearCocktails();
-	match cocktail:
-		Resources.recipeDajkiri:
-			cocktailDaikiri.visible = true;
-		Resources.recipeMojito:
-			cocktailMohito.visible = true;
-		Resources.recipePinaKolada:
-			cocktailPinocolada.visible = true;
-		Resources.recipePineappleLimonade:
-			cocktailAnanasLimonad.visible = true;
-		Resources.recipeBountyBreeze:
-			cocktailBauntiBriz.visible = true;
 	setEnabled(true)
 
 func setEnabled(enabled: bool):
@@ -136,6 +125,23 @@ func addIngredientFinish(ingredient: IngredientObject, result: CocktailMixingCon
 func closeTheCap() -> void:
 	capSprite.visible = true;
 	grabableComponent.disableGrab(false);
+	
+	var cookedCocktail = Global.gameCycle.cocktailMixingController.getCookedCocktail()
+	clearCocktails();
+	match cookedCocktail:
+		Resources.recipeDajkiri:
+			cocktailDaikiri.visible = true;
+		Resources.recipeMojito:
+			cocktailMohito.visible = true;
+		Resources.recipePinaKolada:
+			cocktailPinocolada.visible = true;
+		Resources.recipePineappleLimonade:
+			cocktailAnanasLimonad.visible = true;
+		Resources.recipeBountyBreeze:
+			cocktailBauntiBriz.visible = true;
+		null:
+			cocktailIncorrect.visible = true;
+
 	startShakeMiniGame();
 
 func _process(delta: float) -> void:
@@ -192,6 +198,7 @@ func clearCocktails():
 	cocktailPinocolada.visible = false;
 	cocktailAnanasLimonad.visible = false;
 	cocktailBauntiBriz.visible = false;
+	cocktailIncorrect.visible = false;
 
 func clear():
 	clearIngredients()
