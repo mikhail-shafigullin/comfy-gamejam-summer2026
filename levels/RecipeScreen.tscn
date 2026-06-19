@@ -5,6 +5,80 @@
 [ext_resource type="Texture2D" uid="uid://bl5oqawi35h62" path="res://assets/sprites/props/book_mohito.png" id="2_wvoc6"]
 [ext_resource type="Texture2D" uid="uid://bthjvun2j4wkf" path="res://assets/sprites/props/book_ananaslimonad.png" id="3_7jodx"]
 [ext_resource type="Texture2D" uid="uid://bitpjvpbathry" path="res://assets/sprites/props/book_daikiri.png" id="3_ykygf"]
+[ext_resource type="Texture2D" uid="uid://8tgnf7jk784t" path="res://assets/sprites/props/book_bauntibriz.png" id="5_ykygf"]
+[ext_resource type="Texture2D" uid="uid://dwd58yqpwyw3h" path="res://assets/sprites/props/book_pinocolada.png" id="6_6xh2n"]
+[ext_resource type="Texture2D" uid="uid://cduveaks02v8h" path="res://assets/sprites/props/book_main3.png" id="7_dl5pf"]
+[ext_resource type="Texture2D" uid="uid://b6f7lb3gtwdkx" path="res://assets/sprites/props/book_main1.png" id="8_fva45"]
+[ext_resource type="Texture2D" uid="uid://bebowxdlmlbjk" path="res://assets/sprites/props/book_main2.png" id="9_nqaev"]
+
+[sub_resource type="Theme" id="Theme_dl5pf"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ykygf"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("7_dl5pf")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_fva45")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_nqaev")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_dl5pf")
+}],
+"loop": false,
+"name": &"changePage",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_58xx5")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dl5pf"]
+size = Vector2(224, 256)
+
+[sub_resource type="Animation" id="Animation_ykygf"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("SubViewport/BookAnimSprite:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(157.99998, 154)]
+}
+
+[sub_resource type="Animation" id="Animation_6xh2n"]
+resource_name = "changePage"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("SubViewport/BookAnimSprite:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(157.99998, 154)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_son02"]
+_data = {
+&"RESET": SubResource("Animation_ykygf"),
+&"changePage": SubResource("Animation_6xh2n")
+}
 
 [node name="RecipeScreen" type="Control" unique_id=2131600368]
 layout_mode = 3
@@ -17,9 +91,12 @@ offset_right = -156.0
 offset_bottom = -185.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 1
+theme = SubResource("Theme_dl5pf")
 script = ExtResource("1_58xx5")
 
 [node name="SubViewportContainer" type="SubViewportContainer" parent="." unique_id=680890273]
+unique_name_in_owner = true
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -34,23 +111,105 @@ size = Vector2i(308, 313)
 render_target_update_mode = 4
 
 [node name="BookMohito" type="Sprite2D" parent="SubViewportContainer/SubViewport" unique_id=1881870332]
-position = Vector2(152, 154)
+unique_name_in_owner = true
+position = Vector2(156, 154)
+scale = Vector2(0.948148, 0.94814795)
 texture = ExtResource("2_wvoc6")
 
+[node name="RichTextLabel" type="RichTextLabel" parent="SubViewportContainer/SubViewport/BookMohito" unique_id=797134368]
+offset_left = -63.28125
+offset_top = -8.4375
+offset_right = 105.46875
+offset_bottom = 40.0
+theme_override_colors/default_color = Color(0.24313726, 0.09019608, 0.18039216, 1)
+text = "Mojito"
+horizontal_alignment = 1
+vertical_alignment = 1
+
 [node name="BookDaikiri" type="Sprite2D" parent="SubViewportContainer/SubViewport" unique_id=244161495]
+unique_name_in_owner = true
 visible = false
-position = Vector2(152, 154)
+position = Vector2(155.00002, 154)
+scale = Vector2(0.948148, 0.94814795)
 texture = ExtResource("3_ykygf")
 
+[node name="RichTextLabel" type="RichTextLabel" parent="SubViewportContainer/SubViewport/BookDaikiri" unique_id=18400576]
+offset_left = -63.28125
+offset_top = -8.4375
+offset_right = 105.46875
+offset_bottom = 40.0
+theme_override_colors/default_color = Color(0.24313726, 0.09019608, 0.18039216, 1)
+text = "Dajkiri"
+horizontal_alignment = 1
+vertical_alignment = 1
+
 [node name="BookAnanaslimonad" type="Sprite2D" parent="SubViewportContainer/SubViewport" unique_id=2070795301]
+unique_name_in_owner = true
 visible = false
 z_index = 1
 position = Vector2(155.00006, 153)
 scale = Vector2(0.948148, 0.94814795)
 texture = ExtResource("3_7jodx")
 
-[node name="ComfyJamSummer2026001" type="Sprite2D" parent="SubViewportContainer/SubViewport" unique_id=615586028]
+[node name="RichTextLabel" type="RichTextLabel" parent="SubViewportContainer/SubViewport/BookAnanaslimonad" unique_id=1592687192]
+offset_left = -79.10162
+offset_top = -8.4375
+offset_right = 123.39838
+offset_bottom = 40.0
+theme_override_colors/default_color = Color(0.24313726, 0.09019608, 0.18039216, 1)
+text = "Pineapple Limonade"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="BookBauntibriz" type="Sprite2D" parent="SubViewportContainer/SubViewport" unique_id=717916582]
+unique_name_in_owner = true
+visible = false
+position = Vector2(156.00002, 155)
+scale = Vector2(0.948148, 0.94814795)
+texture = ExtResource("5_ykygf")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="SubViewportContainer/SubViewport/BookBauntibriz" unique_id=978981990]
+offset_left = -79.10162
+offset_top = -8.4375
+offset_right = 123.39838
+offset_bottom = 40.0
+theme_override_colors/default_color = Color(0.24313726, 0.09019608, 0.18039216, 1)
+text = "Bounty Breeze"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="BookPinocolada" type="Sprite2D" parent="SubViewportContainer/SubViewport" unique_id=1875432002]
+unique_name_in_owner = true
+visible = false
+position = Vector2(156.00002, 154)
+scale = Vector2(0.948148, 0.94814795)
+texture = ExtResource("6_6xh2n")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="SubViewportContainer/SubViewport/BookPinocolada" unique_id=998307425]
+offset_left = -79.10162
+offset_top = -8.4375
+offset_right = 123.39838
+offset_bottom = 40.0
+theme_override_colors/default_color = Color(0.24313726, 0.09019608, 0.18039216, 1)
+text = "Pina Colada"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="BookAnimSprite" type="AnimatedSprite2D" parent="SubViewportContainer/SubViewport" unique_id=885477589]
+unique_name_in_owner = true
 z_index = -1
 position = Vector2(157.99998, 154)
 scale = Vector2(0.9444445, 0.9444444)
-texture = ExtResource("2_58xx5")
+sprite_frames = SubResource("SpriteFrames_ykygf")
+animation = &"changePage"
+
+[node name="StaticBody2D" type="StaticBody2D" parent="SubViewportContainer/SubViewport" unique_id=882551106]
+unique_name_in_owner = true
+visible = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SubViewportContainer/SubViewport/StaticBody2D" unique_id=67475192]
+position = Vector2(176, 154)
+shape = SubResource("RectangleShape2D_dl5pf")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="SubViewportContainer" unique_id=1452491684]
+libraries/ = SubResource("AnimationLibrary_son02")

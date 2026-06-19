@@ -87,7 +87,9 @@ offset_bottom = -203.0
 
 [node name="ClientScreen" parent="." unique_id=173617116 instance=ExtResource("4_1obit")]
 layout_mode = 1
+offset_left = 818.0
 offset_top = 26.0
+offset_right = -150.0
 offset_bottom = -685.0
 
 [node name="RecipeScreen" parent="." unique_id=2131600368 instance=ExtResource("5_1obit")]
@@ -109,6 +111,7 @@ offset_left = 820.0
 offset_top = 360.0
 offset_right = 1128.0
 offset_bottom = 673.0
+mouse_filter = 2
 
 [node name="MiniGameDialogues" parent="." unique_id=2010436925 instance=ExtResource("2_vrrex")]
 layout_mode = 1
