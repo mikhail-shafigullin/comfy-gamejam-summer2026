@@ -104,6 +104,7 @@ func addIngredientIntent(ingredient: IngredientObject) -> void:
 func addIngredientFinish(ingredient: IngredientObject, result: CocktailMixingController.IngredientMiniGameStatus) -> void:
 	animationPlayer.play("RESET")
 	Global.gameCycle.addIngredient(ingredient.data, result);
+	ingredient.grabableComponent.resetToPreGrabPosition();
 	ingredient.show();
 	print("Ingredient added to shaker: ", ingredient.name, " (", result, ")")
 

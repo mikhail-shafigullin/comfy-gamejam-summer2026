@@ -7,9 +7,10 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_m7vdd"]
 size = Vector2(144, 88)
 
-[node name="LimeBox" type="Node2D" unique_id=398750435]
+[node name="LimeBox" type="Node2D" unique_id=398750435 node_paths=PackedStringArray("grabableComponent")]
 y_sort_enabled = true
 script = ExtResource("1_sogt4")
+grabableComponent = NodePath("GrabableComponent")
 
 [node name="ComfyJamSummer2026Botttle" type="Sprite2D" parent="." unique_id=2066076334]
 texture = ExtResource("2_sogt4")

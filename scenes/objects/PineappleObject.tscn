@@ -4,8 +4,9 @@
 [ext_resource type="Script" uid="uid://c84gilgsuvqm5" path="res://components/GrabableComponent.gd" id="2_hracu"]
 [ext_resource type="Texture2D" uid="uid://jpktdmbyre22" path="res://assets/sprites/props/pineapple_juice.png" id="2_qglxd"]
 
-[node name="PineappleBottle" type="Node2D" unique_id=1146163768]
+[node name="PineappleBottle" type="Node2D" unique_id=1146163768 node_paths=PackedStringArray("grabableComponent")]
 script = ExtResource("1_hracu")
+grabableComponent = NodePath("GrabableComponent")
 
 [node name="ComfyJamSummer2026Botttle" type="Sprite2D" parent="." unique_id=1263969476]
 texture = ExtResource("2_qglxd")

@@ -14,6 +14,7 @@ var _isDragging: bool = false
 var _dragOffset: Vector2 = Vector2.ZERO
 var _clickLocalOffset: Vector2 = Vector2.ZERO
 var _originalRotation: float = 0.0
+var _positionBeforeGrab: Vector2 = Vector2.ZERO
 var _lastMousePos: Vector2 = Vector2.ZERO
 var _velocityX: float = 0.0
 
@@ -82,6 +83,7 @@ func _tryStartDrag() -> void:
 	for result in spaceState.intersect_point(query):
 		if result["collider"] == body:
 			_isDragging = true
+			_positionBeforeGrab = parent.global_position
 			_dragOffset = parent.global_position - mousePos
 			_clickLocalOffset = parent.to_local(mousePos)
 			_lastMousePos = mousePos
@@ -133,3 +135,8 @@ func _findSprite(node: Node) -> Sprite2D:
 
 func disableGrab(disable: bool) -> void:
 	isGrabDisabled = disable
+
+func resetToPreGrabPosition() -> void:
+	var parent := get_parent() as Node2D
+	if parent != null:
+		parent.global_position = _positionBeforeGrab

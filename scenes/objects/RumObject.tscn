@@ -6,8 +6,9 @@
 [ext_resource type="Texture2D" uid="uid://xvatithl72vp" path="res://assets/sprites/props/rum_zhidkost.png" id="4_t4wdv"]
 [ext_resource type="Texture2D" uid="uid://xpdr6xv0hkpt" path="res://assets/sprites/props/rum_front.png" id="5_gcyeh"]
 
-[node name="RumBottle" type="Node2D" unique_id=1146163768]
+[node name="RumBottle" type="Node2D" unique_id=1146163768 node_paths=PackedStringArray("grabableComponent")]
 script = ExtResource("1_h04hl")
+grabableComponent = NodePath("GrabableComponent")
 
 [node name="ComfyJamSummer2026Botttle" type="Sprite2D" parent="." unique_id=1263969476]
 texture = ExtResource("2_2y8lo")
