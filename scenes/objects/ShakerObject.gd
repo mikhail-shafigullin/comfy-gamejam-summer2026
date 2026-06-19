@@ -6,7 +6,7 @@ signal shake_minigame_completed()
 
 const SHAKE_GAIN = 15.0
 const SHAKE_DECAY = 6.0
-const SHAKE_DIRECTION_THRESHOLD = 0.5
+const SHAKE_DIRECTION_THRESHOLD = 0.7
 
 var isEnabled: bool
 @onready var _area: Area2D = %Area2D
@@ -15,6 +15,18 @@ var isEnabled: bool
 @onready var shakeMiniGameControl: Control = %ShakeMiniGameControl
 @onready var shakeProgressBar: ProgressBar = %ShakeProgressBar
 @onready var shakeFinishTimer: Timer = %ShakeFinishTimer
+@onready var animationPlayer: AnimationPlayer = %AnimationPlayer;
+
+@onready var ingredientPineappleJuice: Sprite2D = %PineappleJuice;
+@onready var ingredientCocoJuice: Sprite2D = %CocoJuice;
+@onready var ingredientRum: Sprite2D = %Rum;
+@onready var ingredientSprite: Sprite2D = %Sprite;
+
+@onready var cocktailDaikiri: Sprite2D = %Daikiri;
+@onready var cocktailMohito: Sprite2D = %Mohito;
+@onready var cocktailPinocolada: Sprite2D = %Pinocolada;
+@onready var cocktailAnanasLimonad: Sprite2D = %AnanasLimonad;
+@onready var cocktailBauntiBriz: Sprite2D = %BauntiBriz;
 
 @export var shakerRestartPositionMarker: Marker2D;
 
@@ -41,7 +53,8 @@ func onIngredientDropped(ingredient: Node2D) -> void:
 
 	for result in space_state.intersect_point(query):
 		if result["collider"] == _area && ingredient is IngredientObject :
-			addIngredientIntent(ingredient)
+			var ingredientObj: IngredientObject = ingredient;
+			addIngredientIntent(ingredientObj)
 			return
 
 func cocktailOrdered(cocktail: CocktailRecipeData):
@@ -52,11 +65,26 @@ func setEnabled(enabled: bool):
 	visible = enabled;
 	isEnabled = enabled
 
-func addIngredientIntent(ingredient: Node2D) -> void:
+func addIngredientIntent(ingredient: IngredientObject) -> void:
+	clearIngredients()
+	ingredient.hide();
+	match ingredient.data.name:
+		Resources.ingredientPineappleJuice.name:
+			ingredientPineappleJuice.visible = true;
+		Resources.ingredientMilk.name:
+			ingredientCocoJuice.visible = true;
+		Resources.ingredientRum.name:
+			ingredientRum.visible = true;
+		Resources.ingredientSprite.name:
+			ingredientSprite.visible = true;
+	animationPlayer.play("pourLiquidIngredient");
+	animationPlayer.animation_finished.connect(func(_anim): animationPlayer.play("pourLiquidIngredient2"), CONNECT_ONE_SHOT); 
 	minigame_requested.emit(ingredient)
 
 func addIngredientFinish(ingredient: IngredientObject, result: CocktailMixingController.IngredientMiniGameStatus) -> void:
+	animationPlayer.play("RESET")
 	Global.gameCycle.addIngredient(ingredient.data, result);
+	ingredient.show();
 	print("Ingredient added to shaker: ", ingredient.name, " (", result, ")")
 
 func closeTheCap() -> void:
@@ -70,7 +98,6 @@ func _process(delta: float) -> void:
 
 	var currentY := global_position.y
 	var yVelocity := currentY - _lastY
-	print(yVelocity)
 
 	if absf(yVelocity) > SHAKE_DIRECTION_THRESHOLD and absf(_lastYVelocity) > SHAKE_DIRECTION_THRESHOLD:
 		if sign(yVelocity) != sign(_lastYVelocity):
@@ -97,16 +124,24 @@ func _completeShakeMiniGame() -> void:
 	shakeFinishTimer.start();
 	shake_minigame_completed.emit()
 
+func _on_shake_finish_timer_timeout() -> void:
+	animationPlayer.play("pourCocktail");
+	animationPlayer.animation_finished.connect(func(_animeName): Dialogic.start("CocktailFinished"), CONNECT_ONE_SHOT);
+
 func showCocktailResult():
 	setEnabled(false);
 	Global.gameCycle.showResults();
-	
 
-func _on_shake_finish_timer_timeout() -> void:
-	Dialogic.start("CocktailFinished")
-	pass # Replace with function body.
+func clearIngredients():
+	ingredientPineappleJuice.visible = false;
+	ingredientCocoJuice.visible = false;
+	ingredientRum.visible = false;
+	ingredientSprite.visible = false;
 
 func clear():
+	clearIngredients()
+
+	animationPlayer.play("RESET")
 	setEnabled(false);
 	capSprite.visible = false;
 	position = shakerRestartPositionMarker.position;

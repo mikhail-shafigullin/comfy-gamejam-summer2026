@@ -16,6 +16,9 @@ func _ready() -> void:
 		%MilkBottle,
 		%PineappleBottle,
 		%Rum,
+		%Sprite,
+		%MintBox,
+		%LimeBox
 	]
 	for ingredient in ingredients:
 		var grab := ingredient.get_node("GrabableComponent") as GrabableComponent

@@ -8,6 +8,7 @@ var ingredientPineappleJuice: IngredientData;
 var ingredientMilk: IngredientData;
 var ingredientLime: IngredientData;
 var ingredientMint: IngredientData;
+var ingredientSprite: IngredientData;
 var ingredientIce: IngredientData;
 
 var cocktailRecipes: Array[CocktailRecipeData];
@@ -40,16 +41,17 @@ func _initIngredients():
 	ingredientMilk = IngredientData.new("Coconut Milk");
 	ingredientLime = IngredientData.new("Lime");
 	ingredientMint = IngredientData.new("Mint");
+	ingredientSprite = IngredientData.new("Sprite");
 	ingredientIce = IngredientData.new("Ice Cube");
 
 	ingredients = [ingredientRum, ingredientPineappleJuice, ingredientMilk, 
-		ingredientLime, ingredientMint, ingredientIce];
+		ingredientLime, ingredientMint, ingredientSprite, ingredientIce];
 
 func _initCocktailRecipes():
 	recipePinaKolada = CocktailRecipeData.new("Pina Colada", 
 		[ingredientRum, ingredientPineappleJuice, ingredientMilk])
 	recipeMojito = CocktailRecipeData.new("Mojito",
-		[ingredientRum, ingredientLime, ingredientMint]);
+		[ingredientRum, ingredientLime, ingredientMint, ingredientSprite]);
 	recipeDajkiri = CocktailRecipeData.new("Dajkiri", 
 		[ingredientRum, ingredientMilk, ingredientLime]);
 	recipeBountyBreeze = CocktailRecipeData.new("Bounty Breeze", 

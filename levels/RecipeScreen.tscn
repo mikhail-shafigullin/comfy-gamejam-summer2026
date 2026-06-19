@@ -2,7 +2,9 @@
 
 [ext_resource type="Script" uid="uid://c8b80wpafpw1a" path="res://levels/RecipeScreen.gd" id="1_58xx5"]
 [ext_resource type="Texture2D" uid="uid://bqgwx3foqokjw" path="res://assets/sprites/props/book_main.png" id="2_58xx5"]
+[ext_resource type="Texture2D" uid="uid://bl5oqawi35h62" path="res://assets/sprites/props/book_mohito.png" id="2_wvoc6"]
 [ext_resource type="Texture2D" uid="uid://bthjvun2j4wkf" path="res://assets/sprites/props/book_ananaslimonad.png" id="3_7jodx"]
+[ext_resource type="Texture2D" uid="uid://bitpjvpbathry" path="res://assets/sprites/props/book_daikiri.png" id="3_ykygf"]
 
 [node name="RecipeScreen" type="Control" unique_id=2131600368]
 layout_mode = 3
@@ -31,13 +33,24 @@ handle_input_locally = false
 size = Vector2i(308, 313)
 render_target_update_mode = 4
 
+[node name="BookMohito" type="Sprite2D" parent="SubViewportContainer/SubViewport" unique_id=1881870332]
+position = Vector2(152, 154)
+texture = ExtResource("2_wvoc6")
+
+[node name="BookDaikiri" type="Sprite2D" parent="SubViewportContainer/SubViewport" unique_id=244161495]
+visible = false
+position = Vector2(152, 154)
+texture = ExtResource("3_ykygf")
+
 [node name="BookAnanaslimonad" type="Sprite2D" parent="SubViewportContainer/SubViewport" unique_id=2070795301]
+visible = false
 z_index = 1
 position = Vector2(155.00006, 153)
 scale = Vector2(0.948148, 0.94814795)
 texture = ExtResource("3_7jodx")
 
 [node name="ComfyJamSummer2026001" type="Sprite2D" parent="SubViewportContainer/SubViewport" unique_id=615586028]
+z_index = -1
 position = Vector2(157.99998, 154)
 scale = Vector2(0.9444445, 0.9444444)
 texture = ExtResource("2_58xx5")

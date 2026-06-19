@@ -12,6 +12,7 @@
 [ext_resource type="PackedScene" uid="uid://bvcdxc36q6ppe" path="res://scenes/objects/MintBox.tscn" id="8_v7b75"]
 [ext_resource type="PackedScene" uid="uid://j1h8ca42ut2h" path="res://scenes/objects/LimeBox.tscn" id="9_arhdh"]
 [ext_resource type="Texture2D" uid="uid://cidg0v1j5x3iu" path="res://assets/sprites/props/osnovnoi_bg.png" id="9_sj2v1"]
+[ext_resource type="PackedScene" uid="uid://diqi5c71dg6mg" path="res://scenes/objects/SpriteObject.tscn" id="12_bcdfa"]
 
 [node name="BarMixingScreen" type="Control" unique_id=562281540]
 layout_mode = 3
@@ -94,6 +95,10 @@ position = Vector2(69, 501)
 unique_name_in_owner = true
 y_sort_enabled = true
 position = Vector2(581, 541)
+
+[node name="Sprite" parent="SubViewportContainer/SubViewport/Node2D2" unique_id=358147594 instance=ExtResource("12_bcdfa")]
+unique_name_in_owner = true
+position = Vector2(165, 427)
 
 [node name="Curtain" type="ColorRect" parent="SubViewportContainer/SubViewport/Node2D2" unique_id=1405940274]
 unique_name_in_owner = true

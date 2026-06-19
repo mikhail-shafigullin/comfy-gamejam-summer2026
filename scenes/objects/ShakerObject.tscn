@@ -3,8 +3,20 @@
 [ext_resource type="Script" uid="uid://cqjobj5o78qjr" path="res://scenes/objects/ShakerObject.gd" id="1_j4bmh"]
 [ext_resource type="Texture2D" uid="uid://c7ekk42ae3qls" path="res://assets/sprites/props/Sheiker_down.png" id="2_7rmrs"]
 [ext_resource type="Texture2D" uid="uid://dqp8px8sg3k45" path="res://assets/sprites/Glass_Foreground.png" id="2_j4bmh"]
+[ext_resource type="Texture2D" uid="uid://chwbr2x5qvhxk" path="res://assets/sprites/props/Sheiker_zhidkost.png" id="3_54e2f"]
 [ext_resource type="Script" uid="uid://c84gilgsuvqm5" path="res://components/GrabableComponent.gd" id="4_0p30w"]
 [ext_resource type="Texture2D" uid="uid://drtvif72ebvc1" path="res://assets/sprites/props/Sheiker_up.png" id="4_f5hdj"]
+[ext_resource type="Texture2D" uid="uid://dddqna1qshfvs" path="res://assets/sprites/props/daikiri.png" id="6_f5hdj"]
+[ext_resource type="Texture2D" uid="uid://ckvd0cahanatf" path="res://assets/sprites/props/pinocolada.png" id="7_7doqx"]
+[ext_resource type="Texture2D" uid="uid://bx1pup57dixpu" path="res://assets/sprites/props/mohito.png" id="7_mxy4q"]
+[ext_resource type="Texture2D" uid="uid://585tolo3ui0s" path="res://assets/sprites/props/ananas_limonad.png" id="9_xfish"]
+[ext_resource type="Texture2D" uid="uid://bhv06uk4x7wu7" path="res://assets/sprites/props/baunti_briz.png" id="10_vuvi1"]
+[ext_resource type="Texture2D" uid="uid://cau16kvct0a4x" path="res://assets/sprites/props/coco_juice.png" id="11_jrr7o"]
+[ext_resource type="Texture2D" uid="uid://jpktdmbyre22" path="res://assets/sprites/props/pineapple_juice.png" id="11_t17to"]
+[ext_resource type="Texture2D" uid="uid://b8qlv38kms7ph" path="res://assets/sprites/props/rum_back.png" id="12_blwxs"]
+[ext_resource type="Texture2D" uid="uid://xvatithl72vp" path="res://assets/sprites/props/rum_zhidkost.png" id="13_t17to"]
+[ext_resource type="Texture2D" uid="uid://xpdr6xv0hkpt" path="res://assets/sprites/props/rum_front.png" id="14_oqs6c"]
+[ext_resource type="Texture2D" uid="uid://byf5yq5wcxjj7" path="res://assets/sprites/props/sprite.png" id="15_blwxs"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_j4bmh"]
 size = Vector2(96, 112)
@@ -12,39 +24,530 @@ size = Vector2(96, 112)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0p30w"]
 size = Vector2(96, 184)
 
+[sub_resource type="Animation" id="Animation_02qfk"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Shaker/CapSprite:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Shaker/CapSprite:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(72, 80)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Shaker/GlassBackground:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(71, 85)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Shaker/GlassBackground:rotation")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Cocktails:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Cocktails:modulate")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Cocktails:position")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("SoakedLiquid:visible")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("SoakedLiquid/Polygon2D2:scale")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1e-05)]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("SoakedLiquid/Polygon2D2:position")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(73, -21)]
+}
+tracks/10/type = "value"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("SoakedLiquid/Polygon2D:modulate")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/11/type = "value"
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/path = NodePath("IngredientLiquid:position")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 59)]
+}
+tracks/12/type = "value"
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/path = NodePath("IngredientLiquid:rotation")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/13/type = "value"
+tracks/13/imported = false
+tracks/13/enabled = true
+tracks/13/path = NodePath("IngredientLiquid:modulate")
+tracks/13/interp = 1
+tracks/13/loop_wrap = true
+tracks/13/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/14/type = "value"
+tracks/14/imported = false
+tracks/14/enabled = true
+tracks/14/path = NodePath("IngredientLiquid:visible")
+tracks/14/interp = 1
+tracks/14/loop_wrap = true
+tracks/14/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/15/type = "value"
+tracks/15/imported = false
+tracks/15/enabled = true
+tracks/15/path = NodePath("Shaker/GlassBackground/SheikerZhidkost:visible")
+tracks/15/interp = 1
+tracks/15/loop_wrap = true
+tracks/15/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_vuvi1"]
+resource_name = "pourCocktail"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Shaker/CapSprite:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Shaker/CapSprite:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(72, 80), Vector2(72, 24)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Shaker/GlassBackground:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.3, 0.6),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(71, 85), Vector2(96, -56.000004)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Shaker/GlassBackground:rotation")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0.3, 0.6),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, -1.0471976]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Cocktails:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0.300147),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Cocktails:modulate")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0.300147, 0.55028397),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Cocktails:position")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0.3, 0.55),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(-40, 0), Vector2(0, 0)]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("SoakedLiquid:visible")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0.59959894),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("SoakedLiquid/Polygon2D2:scale")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0.60003334, 0.7, 0.8997807, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(1, 1e-05), Vector2(1, 1), Vector2(1, 1), Vector2(1, 1e-05)]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("SoakedLiquid/Polygon2D2:position")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0.8997807, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(73, -21), Vector2(73, 59)]
+}
+tracks/10/type = "value"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("SoakedLiquid/Polygon2D:modulate")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"times": PackedFloat32Array(0.56666666, 0.6, 0.8666667, 0.9),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/11/type = "value"
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/path = NodePath("Shaker/GlassBackground/SheikerZhidkost:visible")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_t17to"]
+resource_name = "pourLiquidIngredient"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("IngredientLiquid:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, 59)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("IngredientLiquid:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.2, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 0.7853982]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("IngredientLiquid:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("IngredientLiquid:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_oqs6c"]
+resource_name = "pourLiquidIngredient2"
+length = 0.3
+loop_mode = 2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("IngredientLiquid:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 0.4829682),
+"update": 0,
+"values": [0.7853982, 1.1152654]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_02qfk"]
+_data = {
+&"RESET": SubResource("Animation_02qfk"),
+&"pourCocktail": SubResource("Animation_vuvi1"),
+&"pourLiquidIngredient": SubResource("Animation_t17to"),
+&"pourLiquidIngredient2": SubResource("Animation_oqs6c")
+}
+
 [node name="Shaker" type="Node2D" unique_id=1170390427]
 script = ExtResource("1_j4bmh")
 
-[node name="GlassBackground" type="Sprite2D" parent="." unique_id=1641604231]
+[node name="Shaker" type="Node2D" parent="." unique_id=675923672]
+
+[node name="GlassBackground" type="Sprite2D" parent="Shaker" unique_id=1641604231]
 position = Vector2(71, 85)
 texture = ExtResource("2_7rmrs")
 metadata/_edit_group_ = true
 
-[node name="GlassForeground" type="Sprite2D" parent="." unique_id=1466441797]
+[node name="SheikerZhidkost" type="Sprite2D" parent="Shaker/GlassBackground" unique_id=1591530168]
+visible = false
+position = Vector2(0, 1)
+texture = ExtResource("3_54e2f")
+
+[node name="GlassForeground" type="Sprite2D" parent="Shaker" unique_id=1466441797]
 visible = false
 position = Vector2(70, 86)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("2_j4bmh")
 
-[node name="CapSprite" type="Sprite2D" parent="." unique_id=354057088]
+[node name="CapSprite" type="Sprite2D" parent="Shaker" unique_id=354057088]
 unique_name_in_owner = true
+visible = false
 position = Vector2(72, 80)
-rotation = -6.2831855
 texture = ExtResource("4_f5hdj")
 
-[node name="Area2D" type="Area2D" parent="." unique_id=1847767884]
-unique_name_in_owner = true
+[node name="Cocktails" type="Node2D" parent="." unique_id=1133450646]
+visible = false
+modulate = Color(1, 1, 1, 0)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=2082913765]
-position = Vector2(72, 120)
-shape = SubResource("RectangleShape2D_j4bmh")
+[node name="Daikiri" type="Sprite2D" parent="Cocktails" unique_id=509249500]
+unique_name_in_owner = true
+visible = false
+position = Vector2(72, 96)
+texture = ExtResource("6_f5hdj")
+
+[node name="Mohito" type="Sprite2D" parent="Cocktails" unique_id=540630083]
+unique_name_in_owner = true
+visible = false
+position = Vector2(56, 84)
+texture = ExtResource("7_mxy4q")
+
+[node name="Pinocolada" type="Sprite2D" parent="Cocktails" unique_id=1238201144]
+unique_name_in_owner = true
+position = Vector2(64, 84)
+texture = ExtResource("7_7doqx")
+
+[node name="AnanasLimonad" type="Sprite2D" parent="Cocktails" unique_id=1481454837]
+unique_name_in_owner = true
+visible = false
+position = Vector2(64, 84)
+texture = ExtResource("9_xfish")
+
+[node name="BauntiBriz" type="Sprite2D" parent="Cocktails" unique_id=1326462280]
+unique_name_in_owner = true
+visible = false
+position = Vector2(64, 84)
+texture = ExtResource("10_vuvi1")
+
+[node name="IngredientLiquid" type="Node2D" parent="." unique_id=423813953]
+visible = false
+position = Vector2(0, 59)
+
+[node name="PineappleJuice" type="Sprite2D" parent="IngredientLiquid" unique_id=2113916136]
+unique_name_in_owner = true
+texture = ExtResource("11_t17to")
+
+[node name="CocoJuice" type="Sprite2D" parent="IngredientLiquid" unique_id=1731524751]
+unique_name_in_owner = true
+visible = false
+texture = ExtResource("11_jrr7o")
+
+[node name="Rum" type="Sprite2D" parent="IngredientLiquid" unique_id=1283989749]
+unique_name_in_owner = true
+visible = false
+texture = ExtResource("12_blwxs")
+
+[node name="RumZhidkost" type="Sprite2D" parent="IngredientLiquid/Rum" unique_id=1919944926]
+texture = ExtResource("13_t17to")
+
+[node name="RumFront" type="Sprite2D" parent="IngredientLiquid/Rum" unique_id=1065391308]
+texture = ExtResource("14_oqs6c")
+
+[node name="Sprite" type="Sprite2D" parent="IngredientLiquid" unique_id=578352653]
+unique_name_in_owner = true
+visible = false
+texture = ExtResource("15_blwxs")
+flip_h = true
 
 [node name="GrabableComponent" type="Node" parent="." unique_id=40952499]
 script = ExtResource("4_0p30w")
 grabableRotate = true
 isGrabDisabled = true
 
+[node name="Area2D" type="Area2D" parent="." unique_id=1847767884]
+unique_name_in_owner = true
+visible = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=2082913765]
+position = Vector2(72, 120)
+shape = SubResource("RectangleShape2D_j4bmh")
+
 [node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=1768164046]
+visible = false
 input_pickable = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=245711674]
@@ -98,5 +601,20 @@ text = "Shake it!"
 unique_name_in_owner = true
 wait_time = 0.5
 one_shot = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1202150139]
+unique_name_in_owner = true
+libraries/ = SubResource("AnimationLibrary_02qfk")
+
+[node name="SoakedLiquid" type="Node2D" parent="." unique_id=702323680]
+visible = false
+
+[node name="Polygon2D" type="Polygon2D" parent="SoakedLiquid" unique_id=252772944]
+polygon = PackedVector2Array(88, -37, 83, -36, 80, -35, 77, -33, 74, -30, 73, -26, 73, -21, 79, -21, 79, -26, 82, -29, 87, -32)
+
+[node name="Polygon2D2" type="Polygon2D" parent="SoakedLiquid" unique_id=94058392]
+position = Vector2(73, -21)
+scale = Vector2(1, 1e-05)
+polygon = PackedVector2Array(0, 0, 3.0480652, 0, 6, 0, 6, 79, 0, 79)
 
 [connection signal="timeout" from="ShakeFinishTimer" to="." method="_on_shake_finish_timer_timeout"]

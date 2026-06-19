@@ -23,7 +23,6 @@ offset_bottom = -104.0
 [node name="SpawnTimer" type="Timer" parent="." unique_id=-1282119665]
 unique_name_in_owner = true
 wait_time = 8.0
-autostart = true
 
 [node name="DialogueBorders" type="Control" parent="." unique_id=2143151517]
 unique_name_in_owner = true
