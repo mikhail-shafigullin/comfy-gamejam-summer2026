@@ -13,6 +13,7 @@
 [ext_resource type="PackedScene" uid="uid://j1h8ca42ut2h" path="res://scenes/objects/LimeBox.tscn" id="9_arhdh"]
 [ext_resource type="Texture2D" uid="uid://cidg0v1j5x3iu" path="res://assets/sprites/props/osnovnoi_bg.png" id="9_sj2v1"]
 [ext_resource type="PackedScene" uid="uid://diqi5c71dg6mg" path="res://scenes/objects/SpriteObject.tscn" id="12_bcdfa"]
+[ext_resource type="PackedScene" uid="uid://b4is40yuulfvo" path="res://scenes/objects/IceBucket.tscn" id="14_21sna"]
 
 [node name="BarMixingScreen" type="Control" unique_id=562281540]
 layout_mode = 3
@@ -119,3 +120,7 @@ shakerCapRestartMarker = NodePath("../ShakerCapRestartMarker")
 
 [node name="ShakerCapRestartMarker" type="Marker2D" parent="SubViewportContainer/SubViewport/Node2D2" unique_id=790184334]
 position = Vector2(397, 573)
+
+[node name="Icebucket" parent="SubViewportContainer/SubViewport/Node2D2" unique_id=1987122055 node_paths=PackedStringArray("shakerObject") instance=ExtResource("14_21sna")]
+position = Vector2(3, 565)
+shakerObject = NodePath("../Shaker")

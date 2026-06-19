@@ -133,6 +133,16 @@ func _findSprite(node: Node) -> Sprite2D:
 			return child as Sprite2D
 	return null
 
+func startDragAt(mousePos: Vector2) -> void:
+	var parent := get_parent() as Node2D
+	if parent == null:
+		return
+	_isDragging = true
+	_positionBeforeGrab = parent.global_position
+	_dragOffset = parent.global_position - mousePos
+	_clickLocalOffset = parent.to_local(mousePos)
+	_lastMousePos = mousePos
+
 func disableGrab(disable: bool) -> void:
 	isGrabDisabled = disable
 

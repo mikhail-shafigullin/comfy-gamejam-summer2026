@@ -49,15 +49,15 @@ func _initIngredients():
 
 func _initCocktailRecipes():
 	recipePinaKolada = CocktailRecipeData.new("Pina Colada", 
-		[ingredientRum, ingredientPineappleJuice, ingredientMilk])
+		[ingredientRum, ingredientPineappleJuice, ingredientMilk, ingredientIce, ingredientIce])
 	recipeMojito = CocktailRecipeData.new("Mojito",
-		[ingredientRum, ingredientLime, ingredientMint, ingredientSprite]);
+		[ingredientRum, ingredientLime, ingredientMint, ingredientSprite, ingredientIce, ingredientIce, ingredientIce]);
 	recipeDajkiri = CocktailRecipeData.new("Dajkiri", 
-		[ingredientRum, ingredientMilk, ingredientLime]);
+		[ingredientRum, ingredientMilk, ingredientLime, ingredientIce]);
 	recipeBountyBreeze = CocktailRecipeData.new("Bounty Breeze", 
-		[ingredientPineappleJuice, ingredientMilk, ingredientMint]);
+		[ingredientPineappleJuice, ingredientMilk, ingredientMint, ingredientIce, ingredientIce]);
 	recipePineappleLimonade = CocktailRecipeData.new("Pineapple Limonade", 
-		[ingredientPineappleJuice, ingredientLime, ingredientMint]);
+		[ingredientPineappleJuice, ingredientLime, ingredientMint, ingredientIce, ingredientIce, ingredientIce]);
 
 	cocktailRecipes = [recipePinaKolada, recipeMojito, recipeDajkiri,
 		recipeBountyBreeze, recipePineappleLimonade];

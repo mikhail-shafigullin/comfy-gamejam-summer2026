@@ -1,0 +1,26 @@
+[gd_scene format=3 uid="uid://dgwiuxhj08tyn"]
+
+[ext_resource type="Texture2D" uid="uid://6mpsaxqr5ly8" path="res://assets/sprites/props/ice.png" id="1_bufch"]
+[ext_resource type="Script" uid="uid://c84gilgsuvqm5" path="res://components/GrabableComponent.gd" id="2_hpytc"]
+[ext_resource type="Script" uid="uid://c8p4rq2n7vwx1" path="res://scenes/objects/IceCubeIngredientObject.gd" id="3_icecube"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hpytc"]
+size = Vector2(41, 44)
+
+[node name="IceCube" type="Node2D" unique_id=1761444219 node_paths=PackedStringArray("grabableComponent")]
+script = ExtResource("3_icecube")
+grabableComponent = NodePath("GrabableComponent")
+
+[node name="Ice" type="Sprite2D" parent="." unique_id=217267519]
+position = Vector2(2.5, 2.5)
+texture = ExtResource("1_bufch")
+
+[node name="GrabableComponent" type="Node" parent="." unique_id=1963556188]
+script = ExtResource("2_hpytc")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=129537776]
+position = Vector2(-23.5, -23.5)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=693782337]
+position = Vector2(27.5, 26)
+shape = SubResource("RectangleShape2D_hpytc")

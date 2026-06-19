@@ -1,0 +1,15 @@
+[gd_scene format=3 uid="uid://b4is40yuulfvo"]
+
+[ext_resource type="Script" uid="uid://di2rjoj80mvef" path="res://scenes/objects/IceBucket.gd" id="1_uvi40"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bcdfa"]
+size = Vector2(130, 56)
+
+[node name="IceBucket" type="Node2D" unique_id=1987122055]
+script = ExtResource("1_uvi40")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=868203674]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=1688240725]
+position = Vector2(65, 60)
+shape = SubResource("RectangleShape2D_bcdfa")

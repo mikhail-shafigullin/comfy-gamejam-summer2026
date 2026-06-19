@@ -80,6 +80,12 @@ func setEnabled(enabled: bool):
 func addIngredientIntent(ingredient: IngredientObject) -> void:
 	clearIngredients()
 	ingredient.hide();
+	if ingredient.data == Resources.ingredientIce:
+		animationPlayer.play("iceAnimation");
+		animationPlayer.animation_finished.connect(func(_anim): animationPlayer.play("pourLiquidIngredient2"), CONNECT_ONE_SHOT); 
+		addIngredientFinish(ingredient, CocktailMixingController.IngredientMiniGameStatus.OK)
+		return
+		
 	match ingredient.data.name:
 		Resources.ingredientPineappleJuice.name:
 			ingredientPineappleJuice.visible = true;
@@ -97,15 +103,20 @@ func addIngredientIntent(ingredient: IngredientObject) -> void:
 			animationPlayer.play("mintAnimation");
 		Resources.ingredientLime.name:
 			animationPlayer.play("limeAnimation");
+			
 	
 	animationPlayer.animation_finished.connect(func(_anim): animationPlayer.play("pourLiquidIngredient2"), CONNECT_ONE_SHOT); 
 	minigame_requested.emit(ingredient)
 
 func addIngredientFinish(ingredient: IngredientObject, result: CocktailMixingController.IngredientMiniGameStatus) -> void:
-	animationPlayer.play("RESET")
+	if(ingredient.data != Resources.ingredientIce):
+		animationPlayer.play("RESET")
 	Global.gameCycle.addIngredient(ingredient.data, result);
-	ingredient.grabableComponent.resetToPreGrabPosition();
-	ingredient.show();
+	if ingredient.data == Resources.ingredientIce:
+		ingredient.queue_free()
+	else:
+		ingredient.grabableComponent.resetToPreGrabPosition();
+		ingredient.show();
 	print("Ingredient added to shaker: ", ingredient.name, " (", result, ")")
 
 func closeTheCap() -> void:

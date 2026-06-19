@@ -126,6 +126,16 @@ text = "Mojito"
 horizontal_alignment = 1
 vertical_alignment = 1
 
+[node name="RichTextLabel2" type="RichTextLabel" parent="SubViewportContainer/SubViewport/BookMohito" unique_id=1615004043]
+offset_left = -13.710941
+offset_top = 73.828156
+offset_right = 79.10156
+offset_bottom = 105.390656
+theme_override_colors/default_color = Color(0.24313726, 0.09019608, 0.18039216, 1)
+text = "x 3"
+horizontal_alignment = 1
+vertical_alignment = 1
+
 [node name="BookDaikiri" type="Sprite2D" parent="SubViewportContainer/SubViewport" unique_id=244161495]
 unique_name_in_owner = true
 visible = false
@@ -140,6 +150,16 @@ offset_right = 105.46875
 offset_bottom = 40.0
 theme_override_colors/default_color = Color(0.24313726, 0.09019608, 0.18039216, 1)
 text = "Dajkiri"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="RichTextLabel2" type="RichTextLabel" parent="SubViewportContainer/SubViewport/BookDaikiri" unique_id=1430716065]
+offset_left = -13.710941
+offset_top = 73.828156
+offset_right = 79.10156
+offset_bottom = 105.390656
+theme_override_colors/default_color = Color(0.24313726, 0.09019608, 0.18039216, 1)
+text = "x 1"
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -161,6 +181,16 @@ text = "Pineapple Limonade"
 horizontal_alignment = 1
 vertical_alignment = 1
 
+[node name="RichTextLabel2" type="RichTextLabel" parent="SubViewportContainer/SubViewport/BookAnanaslimonad" unique_id=842605748]
+offset_left = -13.710941
+offset_top = 73.828156
+offset_right = 79.10156
+offset_bottom = 105.390656
+theme_override_colors/default_color = Color(0.24313726, 0.09019608, 0.18039216, 1)
+text = "x 3"
+horizontal_alignment = 1
+vertical_alignment = 1
+
 [node name="BookBauntibriz" type="Sprite2D" parent="SubViewportContainer/SubViewport" unique_id=717916582]
 unique_name_in_owner = true
 visible = false
@@ -178,6 +208,16 @@ text = "Bounty Breeze"
 horizontal_alignment = 1
 vertical_alignment = 1
 
+[node name="RichTextLabel2" type="RichTextLabel" parent="SubViewportContainer/SubViewport/BookBauntibriz" unique_id=182669550]
+offset_left = -13.710941
+offset_top = 73.828156
+offset_right = 79.10156
+offset_bottom = 105.390656
+theme_override_colors/default_color = Color(0.24313726, 0.09019608, 0.18039216, 1)
+text = "x 2"
+horizontal_alignment = 1
+vertical_alignment = 1
+
 [node name="BookPinocolada" type="Sprite2D" parent="SubViewportContainer/SubViewport" unique_id=1875432002]
 unique_name_in_owner = true
 visible = false
@@ -192,6 +232,16 @@ offset_right = 123.39838
 offset_bottom = 40.0
 theme_override_colors/default_color = Color(0.24313726, 0.09019608, 0.18039216, 1)
 text = "Pina Colada"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="RichTextLabel2" type="RichTextLabel" parent="SubViewportContainer/SubViewport/BookPinocolada" unique_id=696493229]
+offset_left = -13.710941
+offset_top = 73.828156
+offset_right = 79.10156
+offset_bottom = 105.390656
+theme_override_colors/default_color = Color(0.24313726, 0.09019608, 0.18039216, 1)
+text = "x 2"
 horizontal_alignment = 1
 vertical_alignment = 1
 
